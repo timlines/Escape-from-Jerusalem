@@ -24,6 +24,14 @@ TouchInput="*res://scripts/systems/TouchInput.gd"
 VSGameState="*res://scripts/vslice/systems/VSGameState.gd"
 VSDialogueManager="*res://scripts/vslice/systems/VSDialogueManager.gd"
 VSGameManager="*res://scripts/vslice/systems/VSGameManager.gd"
+InvLocationData="*res://scripts/investigation/data/InvLocationData.gd"
+InvNPCData="*res://scripts/investigation/data/InvNPCData.gd"
+InvInformationSystem="*res://scripts/investigation/systems/InvInformationSystem.gd"
+InvRelationshipSystem="*res://scripts/investigation/systems/InvRelationshipSystem.gd"
+InvNPCDirector="*res://scripts/investigation/systems/InvNPCDirector.gd"
+InvDialogueManager="*res://scripts/investigation/systems/InvDialogueManager.gd"
+InvGameState="*res://scripts/investigation/systems/InvGameState.gd"
+InvGameManager="*res://scripts/investigation/systems/InvGameManager.gd"
 
 [display]
 
@@ -66,6 +74,21 @@ interact={
 dialogue_advance={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+inv_journal={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":74,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+inv_people={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+inv_wait={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 

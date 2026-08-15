@@ -1,0 +1,132 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/investigation/ui/InvHUD.gd" id="1"]
+
+[node name="InvHUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource("1")
+
+[node name="TopBar" type="Control" parent="."]
+mouse_filter = 2
+
+[node name="Background" type="Panel" parent="TopBar"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 300.0
+offset_bottom = 76.0
+
+[node name="Margin" type="MarginContainer" parent="TopBar/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 8
+
+[node name="Content" type="VBoxContainer" parent="TopBar/Background/Margin"]
+theme_override_constants/separation = 2
+
+[node name="LocationLabel" type="Label" parent="TopBar/Background/Margin/Content"]
+theme_override_font_sizes/font_size = 18
+text = "Family House"
+
+[node name="TimeLabel" type="Label" parent="TopBar/Background/Margin/Content"]
+theme_override_font_sizes/font_size = 14
+text = "Day 1 · 8:00 AM · Morning"
+
+[node name="ObjectivePanel" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+mouse_filter = 2
+
+[node name="Background" type="Panel" parent="ObjectivePanel"]
+offset_left = -360.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 72.0
+
+[node name="Margin" type="MarginContainer" parent="ObjectivePanel/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 8
+
+[node name="ObjectiveLabel" type="Label" parent="ObjectivePanel/Background/Margin"]
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+vertical_alignment = 1
+text = "Find Laban, and obtain the plates."
+
+[node name="BottomBar" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -76.0
+offset_right = 180.0
+offset_bottom = -16.0
+theme_override_constants/separation = 12
+mouse_filter = 2
+
+[node name="JournalButton" type="Button" parent="BottomBar"]
+custom_minimum_size = Vector2(108, 60)
+theme_override_font_sizes/font_size = 16
+text = "Journal (J)"
+
+[node name="PeopleButton" type="Button" parent="BottomBar"]
+custom_minimum_size = Vector2(108, 60)
+theme_override_font_sizes/font_size = 16
+text = "People (P)"
+
+[node name="WaitButton" type="Button" parent="BottomBar"]
+custom_minimum_size = Vector2(108, 60)
+theme_override_font_sizes/font_size = 16
+text = "Wait (Q)"
+
+[node name="WaitPopup" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -160.0
+offset_right = 140.0
+offset_bottom = 100.0
+
+[node name="Margin" type="MarginContainer" parent="WaitPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Content" type="VBoxContainer" parent="WaitPopup/Margin"]
+theme_override_constants/separation = 8
+
+[node name="PromptLabel" type="Label" parent="WaitPopup/Margin/Content"]
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+text = "Wait here for how long?"
+
+[node name="Wait30Button" type="Button" parent="WaitPopup/Margin/Content"]
+custom_minimum_size = Vector2(0, 48)
+text = "30 minutes"
+
+[node name="Wait60Button" type="Button" parent="WaitPopup/Margin/Content"]
+custom_minimum_size = Vector2(0, 48)
+text = "1 hour"
+
+[node name="Wait120Button" type="Button" parent="WaitPopup/Margin/Content"]
+custom_minimum_size = Vector2(0, 48)
+text = "2 hours"
+
+[node name="CancelButton" type="Button" parent="WaitPopup/Margin/Content"]
+custom_minimum_size = Vector2(0, 48)
+text = "Cancel"

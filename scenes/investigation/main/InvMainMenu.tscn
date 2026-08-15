@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/investigation/ui/InvMainMenu.gd" id="1"]
+
+[node name="InvMainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.09, 0.1, 0.12, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Box" type="VBoxContainer" parent="Center"]
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Center/Box"]
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+text = "Escape from Jerusalem"
+
+[node name="SubtitleLabel" type="Label" parent="Center/Box"]
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+text = "Conversational Investigation MVP"
+
+[node name="StartButton" type="Button" parent="Center/Box"]
+custom_minimum_size = Vector2(280, 72)
+theme_override_font_sizes/font_size = 22
+text = "Start"

@@ -1,0 +1,39 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://scripts/investigation/world/InvMain.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/investigation/world/InvWorld.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/investigation/player/InvPlayer.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/ui/InteractPrompt.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/investigation/ui/InvHUD.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/investigation/ui/InvJournal.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://scenes/investigation/ui/InvPeople.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://scenes/investigation/ui/InvPauseMenu.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://scenes/investigation/ui/InvConversationBox.tscn" id="9"]
+[ext_resource type="PackedScene" path="res://scenes/ui/TouchControls.tscn" id="10"]
+[ext_resource type="PackedScene" path="res://scenes/investigation/ui/InvEndingScreen.tscn" id="11"]
+
+[node name="InvMain" type="Node2D"]
+script = ExtResource("1")
+
+[node name="World" parent="." instance=ExtResource("2")]
+
+[node name="Player" parent="." instance=ExtResource("3")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 1
+
+[node name="HUD" parent="UI" instance=ExtResource("5")]
+
+[node name="InteractPrompt" parent="UI" instance=ExtResource("4")]
+
+[node name="ConversationBox" parent="UI" instance=ExtResource("9")]
+
+[node name="Journal" parent="UI" instance=ExtResource("6")]
+
+[node name="People" parent="UI" instance=ExtResource("7")]
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("8")]
+
+[node name="TouchControls" parent="." instance=ExtResource("10")]
+
+[node name="EndingScreen" parent="." instance=ExtResource("11")]

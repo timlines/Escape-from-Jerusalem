@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/investigation/ui/InvEndingScreen.gd" id="1"]
+
+[node name="InvEndingScreen" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1")
+
+[node name="Overlay" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.05, 0.05, 0.08, 0.94)
+
+[node name="Center" type="CenterContainer" parent="Overlay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Box" type="VBoxContainer" parent="Overlay/Center"]
+custom_minimum_size = Vector2(460, 0)
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Overlay/Center/Box"]
+theme_override_font_sizes/font_size = 38
+horizontal_alignment = 1
+text = "OBJECTIVE COMPLETE"
+
+[node name="SummaryLabel" type="Label" parent="Overlay/Center/Box"]
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+autowrap_mode = 3
+text = "You obtained the plates.
+
+But getting them back to your family
+will be another matter...
+
+TO BE CONTINUED"
+
+[node name="PlayAgainButton" type="Button" parent="Overlay/Center/Box"]
+custom_minimum_size = Vector2(280, 60)
+theme_override_font_sizes/font_size = 20
+text = "Play Again"
+
+[node name="MenuButton" type="Button" parent="Overlay/Center/Box"]
+custom_minimum_size = Vector2(280, 60)
+theme_override_font_sizes/font_size = 20
+text = "Return to Main Menu"
