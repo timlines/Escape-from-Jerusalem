@@ -1,0 +1,33 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/vslice/world/VSMain.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/vslice/world/VSWorld.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/vslice/player/VSPlayer.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/vslice/ui/VSQuestUI.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/ui/InteractPrompt.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/vslice/ui/VSResourceUI.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://scenes/vslice/ui/VSDialogueBox.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://scenes/ui/TouchControls.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://scenes/vslice/ui/VSEndingScreen.tscn" id="9"]
+
+[node name="VSMain" type="Node2D"]
+script = ExtResource("1")
+
+[node name="World" parent="." instance=ExtResource("2")]
+
+[node name="Player" parent="." instance=ExtResource("3")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 1
+
+[node name="VSQuestUI" parent="UI" instance=ExtResource("4")]
+
+[node name="InteractPrompt" parent="UI" instance=ExtResource("5")]
+
+[node name="VSResourceUI" parent="UI" instance=ExtResource("6")]
+
+[node name="VSDialogueBox" parent="UI" instance=ExtResource("7")]
+
+[node name="TouchControls" parent="." instance=ExtResource("8")]
+
+[node name="VSEndingScreen" parent="." instance=ExtResource("9")]

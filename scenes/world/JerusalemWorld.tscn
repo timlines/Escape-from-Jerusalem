@@ -1,0 +1,453 @@
+[gd_scene load_steps=31 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/WorldBounds.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/systems/Gate.gd" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/Sign.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/npc/NPC.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/ObjectiveTrigger.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/Lever.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/DepartureTrigger.tscn" id="7"]
+
+[sub_resource type="RectangleShape2D" id="RectShape_PerimeterTop"]
+size = Vector2(3280, 40)
+
+[sub_resource type="RectangleShape2D" id="RectShape_PerimeterBottom"]
+size = Vector2(3280, 40)
+
+[sub_resource type="RectangleShape2D" id="RectShape_PerimeterLeft"]
+size = Vector2(40, 980)
+
+[sub_resource type="RectangleShape2D" id="RectShape_PerimeterRight"]
+size = Vector2(40, 980)
+
+[sub_resource type="RectangleShape2D" id="RectShape_ChokeWallTop"]
+size = Vector2(30, 290)
+
+[sub_resource type="RectangleShape2D" id="RectShape_ChokeWallBottom"]
+size = Vector2(30, 290)
+
+[sub_resource type="RectangleShape2D" id="RectShape_PuzzleGate"]
+size = Vector2(30, 320)
+
+[sub_resource type="RectangleShape2D" id="RectShape_Building_A1_1"]
+size = Vector2(160, 120)
+
+[sub_resource type="RectangleShape2D" id="RectShape_Building_A1_2"]
+size = Vector2(160, 120)
+
+[sub_resource type="RectangleShape2D" id="RectShape_Building_A1_3"]
+size = Vector2(200, 120)
+
+[sub_resource type="RectangleShape2D" id="RectShape_Building_A2_1"]
+size = Vector2(160, 120)
+
+[sub_resource type="RectangleShape2D" id="RectShape_Building_A2_2"]
+size = Vector2(160, 120)
+
+[sub_resource type="RectangleShape2D" id="RectShape_Building_A2_3"]
+size = Vector2(200, 120)
+
+[sub_resource type="RectangleShape2D" id="RectShape_Stall_1"]
+size = Vector2(120, 90)
+
+[sub_resource type="RectangleShape2D" id="RectShape_Stall_2"]
+size = Vector2(120, 90)
+
+[sub_resource type="RectangleShape2D" id="RectShape_Stall_3"]
+size = Vector2(120, 90)
+
+[sub_resource type="RectangleShape2D" id="RectShape_Stall_4"]
+size = Vector2(120, 90)
+
+[sub_resource type="RectangleShape2D" id="RectShape_Stall_5"]
+size = Vector2(120, 90)
+
+[sub_resource type="RectangleShape2D" id="RectShape_Building_A4_1"]
+size = Vector2(160, 120)
+
+[sub_resource type="RectangleShape2D" id="RectShape_Building_A4_2"]
+size = Vector2(160, 120)
+
+[sub_resource type="RectangleShape2D" id="RectShape_Building_A4_LehiHouse"]
+size = Vector2(220, 130)
+
+[sub_resource type="RectangleShape2D" id="RectShape_GatePostTop"]
+size = Vector2(40, 60)
+
+[sub_resource type="RectangleShape2D" id="RectShape_GatePostBottom"]
+size = Vector2(40, 60)
+
+[node name="JerusalemWorld" type="Node2D"]
+
+[node name="WorldBounds" type="Node2D" parent="."]
+script = ExtResource("1")
+bounds_size = Vector2(3200, 900)
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(150, 450)
+
+[node name="PerimeterTop" type="StaticBody2D" parent="."]
+position = Vector2(1600, -20)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="PerimeterTop"]
+color = Color(0.28, 0.27, 0.25, 1)
+polygon = PackedVector2Array(-1640.0, -20.0, 1640.0, -20.0, 1640.0, 20.0, -1640.0, 20.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterTop"]
+shape = SubResource("RectShape_PerimeterTop")
+
+[node name="PerimeterBottom" type="StaticBody2D" parent="."]
+position = Vector2(1600, 920)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="PerimeterBottom"]
+color = Color(0.28, 0.27, 0.25, 1)
+polygon = PackedVector2Array(-1640.0, -20.0, 1640.0, -20.0, 1640.0, 20.0, -1640.0, 20.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterBottom"]
+shape = SubResource("RectShape_PerimeterBottom")
+
+[node name="PerimeterLeft" type="StaticBody2D" parent="."]
+position = Vector2(-20, 450)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="PerimeterLeft"]
+color = Color(0.28, 0.27, 0.25, 1)
+polygon = PackedVector2Array(-20.0, -490.0, 20.0, -490.0, 20.0, 490.0, -20.0, 490.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterLeft"]
+shape = SubResource("RectShape_PerimeterLeft")
+
+[node name="PerimeterRight" type="StaticBody2D" parent="."]
+position = Vector2(3220, 450)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="PerimeterRight"]
+color = Color(0.28, 0.27, 0.25, 1)
+polygon = PackedVector2Array(-20.0, -490.0, 20.0, -490.0, 20.0, 490.0, -20.0, 490.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterRight"]
+shape = SubResource("RectShape_PerimeterRight")
+
+[node name="ChokeWallTop" type="StaticBody2D" parent="."]
+position = Vector2(2025, 145)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="ChokeWallTop"]
+color = Color(0.28, 0.27, 0.25, 1)
+polygon = PackedVector2Array(-15.0, -145.0, 15.0, -145.0, 15.0, 145.0, -15.0, 145.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChokeWallTop"]
+shape = SubResource("RectShape_ChokeWallTop")
+
+[node name="ChokeWallBottom" type="StaticBody2D" parent="."]
+position = Vector2(2025, 755)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="ChokeWallBottom"]
+color = Color(0.28, 0.27, 0.25, 1)
+polygon = PackedVector2Array(-15.0, -145.0, 15.0, -145.0, 15.0, 145.0, -15.0, 145.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChokeWallBottom"]
+shape = SubResource("RectShape_ChokeWallBottom")
+
+[node name="PuzzleGate" type="StaticBody2D" parent="."]
+position = Vector2(2025, 450)
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("2")
+
+[node name="Visual" type="Polygon2D" parent="PuzzleGate"]
+color = Color(0.5, 0.15, 0.15, 1)
+polygon = PackedVector2Array(-15.0, -160.0, 15.0, -160.0, 15.0, 160.0, -15.0, 160.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleGate"]
+shape = SubResource("RectShape_PuzzleGate")
+
+[node name="Building_A1_1" type="StaticBody2D" parent="."]
+position = Vector2(150, 150)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="Building_A1_1"]
+color = Color(0.5, 0.47, 0.42, 1)
+polygon = PackedVector2Array(-80.0, -60.0, 80.0, -60.0, 80.0, 60.0, -80.0, 60.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Building_A1_1"]
+shape = SubResource("RectShape_Building_A1_1")
+
+[node name="Building_A1_2" type="StaticBody2D" parent="."]
+position = Vector2(450, 150)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="Building_A1_2"]
+color = Color(0.5, 0.47, 0.42, 1)
+polygon = PackedVector2Array(-80.0, -60.0, 80.0, -60.0, 80.0, 60.0, -80.0, 60.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Building_A1_2"]
+shape = SubResource("RectShape_Building_A1_2")
+
+[node name="Building_A1_3" type="StaticBody2D" parent="."]
+position = Vector2(300, 750)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="Building_A1_3"]
+color = Color(0.5, 0.47, 0.42, 1)
+polygon = PackedVector2Array(-100.0, -60.0, 100.0, -60.0, 100.0, 60.0, -100.0, 60.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Building_A1_3"]
+shape = SubResource("RectShape_Building_A1_3")
+
+[node name="Sign_A1" parent="." instance=ExtResource("3")]
+position = Vector2(200, 380)
+display_name = ""
+message_lines = Array[String](["A weathered stone marker.", "Jerusalem sprawls busily in every direction."])
+
+[node name="NPC_A1_Townsperson" parent="." instance=ExtResource("4")]
+position = Vector2(350, 500)
+
+[node name="InteractionArea" parent="NPC_A1_Townsperson"]
+npc_name = "Townsperson"
+dialogue_lines = Array[String](["Have you heard what Lehi has been saying?", "The people are angry with him."])
+
+[node name="NPC_A1_Merchant" parent="." instance=ExtResource("4")]
+position = Vector2(500, 400)
+
+[node name="InteractionArea" parent="NPC_A1_Merchant"]
+npc_name = "Merchant"
+dialogue_lines = Array[String](["Careful where you wander, child.", "These streets aren't as safe as they used to be."])
+
+[node name="Building_A2_1" type="StaticBody2D" parent="."]
+position = Vector2(750, 150)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="Building_A2_1"]
+color = Color(0.5, 0.47, 0.42, 1)
+polygon = PackedVector2Array(-80.0, -60.0, 80.0, -60.0, 80.0, 60.0, -80.0, 60.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Building_A2_1"]
+shape = SubResource("RectShape_Building_A2_1")
+
+[node name="Building_A2_2" type="StaticBody2D" parent="."]
+position = Vector2(1000, 150)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="Building_A2_2"]
+color = Color(0.5, 0.47, 0.42, 1)
+polygon = PackedVector2Array(-80.0, -60.0, 80.0, -60.0, 80.0, 60.0, -80.0, 60.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Building_A2_2"]
+shape = SubResource("RectShape_Building_A2_2")
+
+[node name="Building_A2_3" type="StaticBody2D" parent="."]
+position = Vector2(850, 750)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="Building_A2_3"]
+color = Color(0.5, 0.47, 0.42, 1)
+polygon = PackedVector2Array(-100.0, -60.0, 100.0, -60.0, 100.0, 60.0, -100.0, 60.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Building_A2_3"]
+shape = SubResource("RectShape_Building_A2_3")
+
+[node name="FindFamilyTrigger" parent="." instance=ExtResource("5")]
+position = Vector2(650, 450)
+objective_index = 1
+
+[node name="NPC_A2_Mother" parent="." instance=ExtResource("4")]
+position = Vector2(950, 450)
+
+[node name="InteractionArea" parent="NPC_A2_Mother"]
+npc_name = "Mother"
+dialogue_lines = Array[String](["There you are. I was starting to worry.", "Your father wishes to speak with everyone soon.", "Go find Lehi -- he isn't far from the marketplace."])
+objective_index_on_interact = 2
+
+[node name="NPC_A2_Sibling" parent="." instance=ExtResource("4")]
+position = Vector2(1100, 500)
+
+[node name="InteractionArea" parent="NPC_A2_Sibling"]
+npc_name = "Younger Sibling"
+dialogue_lines = Array[String](["Are we really leaving the city?", "I don't want to go."])
+
+[node name="Stall_1" type="StaticBody2D" parent="."]
+position = Vector2(1450, 180)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="Stall_1"]
+color = Color(0.55, 0.4, 0.3, 1)
+polygon = PackedVector2Array(-60.0, -45.0, 60.0, -45.0, 60.0, 45.0, -60.0, 45.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stall_1"]
+shape = SubResource("RectShape_Stall_1")
+
+[node name="Stall_2" type="StaticBody2D" parent="."]
+position = Vector2(1650, 180)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="Stall_2"]
+color = Color(0.55, 0.4, 0.3, 1)
+polygon = PackedVector2Array(-60.0, -45.0, 60.0, -45.0, 60.0, 45.0, -60.0, 45.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stall_2"]
+shape = SubResource("RectShape_Stall_2")
+
+[node name="Stall_3" type="StaticBody2D" parent="."]
+position = Vector2(1850, 180)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="Stall_3"]
+color = Color(0.55, 0.4, 0.3, 1)
+polygon = PackedVector2Array(-60.0, -45.0, 60.0, -45.0, 60.0, 45.0, -60.0, 45.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stall_3"]
+shape = SubResource("RectShape_Stall_3")
+
+[node name="Stall_4" type="StaticBody2D" parent="."]
+position = Vector2(1500, 720)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="Stall_4"]
+color = Color(0.55, 0.4, 0.3, 1)
+polygon = PackedVector2Array(-60.0, -45.0, 60.0, -45.0, 60.0, 45.0, -60.0, 45.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stall_4"]
+shape = SubResource("RectShape_Stall_4")
+
+[node name="Stall_5" type="StaticBody2D" parent="."]
+position = Vector2(1750, 720)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="Stall_5"]
+color = Color(0.55, 0.4, 0.3, 1)
+polygon = PackedVector2Array(-60.0, -45.0, 60.0, -45.0, 60.0, 45.0, -60.0, 45.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stall_5"]
+shape = SubResource("RectShape_Stall_5")
+
+[node name="NPC_A3_ClothMerchant" parent="." instance=ExtResource("4")]
+position = Vector2(1500, 450)
+
+[node name="InteractionArea" parent="NPC_A3_ClothMerchant"]
+npc_name = "Cloth Merchant"
+dialogue_lines = Array[String](["Fine linens, fresh from the caravan!", "Not that you look like you're buying."])
+
+[node name="NPC_A3_FruitSeller" parent="." instance=ExtResource("4")]
+position = Vector2(1700, 420)
+
+[node name="InteractionArea" parent="NPC_A3_FruitSeller"]
+npc_name = "Fruit Seller"
+dialogue_lines = Array[String](["The markets grow quieter every week.", "Too many families are leaving the city."])
+
+[node name="NPC_A3_OldPeddler" parent="." instance=ExtResource("4")]
+position = Vector2(1900, 480)
+
+[node name="InteractionArea" parent="NPC_A3_OldPeddler"]
+npc_name = "Old Peddler"
+dialogue_lines = Array[String](["Looking for a way through? Keep looking.", "I hear there's a lever somewhere that opens the old gate."])
+
+[node name="MarketLever" parent="." instance=ExtResource("6")]
+position = Vector2(1950, 220)
+target_gate_path = NodePath("../PuzzleGate")
+narration_lines = Array[String](["You pull the lever.", "Somewhere nearby, something heavy shifts."])
+
+[node name="Building_A4_1" type="StaticBody2D" parent="."]
+position = Vector2(2150, 150)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="Building_A4_1"]
+color = Color(0.5, 0.47, 0.42, 1)
+polygon = PackedVector2Array(-80.0, -60.0, 80.0, -60.0, 80.0, 60.0, -80.0, 60.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Building_A4_1"]
+shape = SubResource("RectShape_Building_A4_1")
+
+[node name="Building_A4_2" type="StaticBody2D" parent="."]
+position = Vector2(2450, 150)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="Building_A4_2"]
+color = Color(0.5, 0.47, 0.42, 1)
+polygon = PackedVector2Array(-80.0, -60.0, 80.0, -60.0, 80.0, 60.0, -80.0, 60.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Building_A4_2"]
+shape = SubResource("RectShape_Building_A4_2")
+
+[node name="Building_A4_LehiHouse" type="StaticBody2D" parent="."]
+position = Vector2(2300, 750)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="Building_A4_LehiHouse"]
+color = Color(0.5, 0.47, 0.42, 1)
+polygon = PackedVector2Array(-110.0, -65.0, 110.0, -65.0, 110.0, 65.0, -110.0, 65.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Building_A4_LehiHouse"]
+shape = SubResource("RectShape_Building_A4_LehiHouse")
+
+[node name="NPC_A4_Neighbor" parent="." instance=ExtResource("4")]
+position = Vector2(2200, 470)
+
+[node name="InteractionArea" parent="NPC_A4_Neighbor"]
+npc_name = "Concerned Neighbor"
+dialogue_lines = Array[String](["Lehi says Jerusalem will fall.", "Some call him a madman. Others believe him."])
+
+[node name="NPC_A4_Watchman" parent="." instance=ExtResource("4")]
+position = Vector2(2550, 430)
+
+[node name="InteractionArea" parent="NPC_A4_Watchman"]
+npc_name = "Watchman"
+dialogue_lines = Array[String](["Move along. It isn't safe to linger here."])
+
+[node name="NPC_Lehi" parent="." instance=ExtResource("4")]
+position = Vector2(2400, 450)
+
+[node name="InteractionArea" parent="NPC_Lehi"]
+npc_name = "Lehi"
+dialogue_lines = Array[String](["We must prepare ourselves.", "The city will not stand much longer.", "Return to your family. We leave soon."])
+objective_index_on_interact = 3
+
+[node name="GatePostTop" type="StaticBody2D" parent="."]
+position = Vector2(3150, 320)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="GatePostTop"]
+color = Color(0.28, 0.27, 0.25, 1)
+polygon = PackedVector2Array(-20.0, -30.0, 20.0, -30.0, 20.0, 30.0, -20.0, 30.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GatePostTop"]
+shape = SubResource("RectShape_GatePostTop")
+
+[node name="GatePostBottom" type="StaticBody2D" parent="."]
+position = Vector2(3150, 580)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Visual" type="Polygon2D" parent="GatePostBottom"]
+color = Color(0.28, 0.27, 0.25, 1)
+polygon = PackedVector2Array(-20.0, -30.0, 20.0, -30.0, 20.0, 30.0, -20.0, 30.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GatePostBottom"]
+shape = SubResource("RectShape_GatePostBottom")
+
+[node name="DepartureTriggerZone" parent="." instance=ExtResource("7")]
+position = Vector2(3150, 450)

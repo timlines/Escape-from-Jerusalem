@@ -1,0 +1,276 @@
+[gd_scene load_steps=26 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/WorldBounds.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/nephi3/npc/N3RegroupTrigger.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/nephi3/npc/N3Brother.tscn" id="3"]
+[ext_resource type="Texture2D" path="res://assets/nephi3/characters/nephi.png" id="4"]
+[ext_resource type="Texture2D" path="res://assets/nephi3/characters/lemuel.png" id="5"]
+[ext_resource type="Texture2D" path="res://assets/nephi3/characters/sam.png" id="6"]
+[ext_resource type="PackedScene" path="res://scenes/nephi3/npc/N3LotCaster.tscn" id="7"]
+[ext_resource type="Texture2D" path="res://assets/vslice/env/wall_block_home.png" id="8"]
+[ext_resource type="Texture2D" path="res://assets/vslice/env/wall_block.png" id="9"]
+[ext_resource type="Texture2D" path="res://assets/vslice/env/prop_crate.png" id="10"]
+[ext_resource type="Texture2D" path="res://assets/vslice/env/door.png" id="11"]
+[ext_resource type="PackedScene" path="res://scenes/nephi3/npc/N3DoorTeleport.tscn" id="12"]
+[ext_resource type="Texture2D" path="res://assets/vslice/env/prop_jar.png" id="13"]
+[ext_resource type="PackedScene" path="res://scenes/nephi3/npc/N3LabanScene.tscn" id="14"]
+
+[sub_resource type="RectangleShape2D" id="RectShape_PerimeterTop"]
+size = Vector2(830, 40)
+
+[sub_resource type="RectangleShape2D" id="RectShape_PerimeterBottom"]
+size = Vector2(830, 40)
+
+[sub_resource type="RectangleShape2D" id="RectShape_PerimeterLeft"]
+size = Vector2(40, 580)
+
+[sub_resource type="RectangleShape2D" id="RectShape_PerimeterRight"]
+size = Vector2(40, 580)
+
+[sub_resource type="RectangleShape2D" id="RectShape_StreetHouse1"]
+size = Vector2(140, 100)
+
+[sub_resource type="RectangleShape2D" id="RectShape_StreetHouse2"]
+size = Vector2(140, 100)
+
+[sub_resource type="RectangleShape2D" id="RectShape_LabanHouseExterior"]
+size = Vector2(170, 110)
+
+[sub_resource type="RectangleShape2D" id="RectShape_RoomWallTop"]
+size = Vector2(580, 30)
+
+[sub_resource type="RectangleShape2D" id="RectShape_RoomWallBottom"]
+size = Vector2(580, 30)
+
+[sub_resource type="RectangleShape2D" id="RectShape_RoomWallLeft"]
+size = Vector2(30, 220)
+
+[sub_resource type="RectangleShape2D" id="RectShape_RoomWallRight"]
+size = Vector2(30, 220)
+
+[node name="N3World" type="Node2D"]
+
+[node name="WorldBounds" type="Node2D" parent="."]
+position = Vector2(0, 200)
+script = ExtResource("1")
+bounds_size = Vector2(1620, 500)
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(140, 470)
+
+[node name="GroundBase" type="Polygon2D" parent="."]
+z_index = -10
+color = Color(0.55, 0.47, 0.36, 1)
+polygon = PackedVector2Array(0.0, 200.0, 750.0, 200.0, 750.0, 700.0, 0.0, 700.0)
+
+[node name="PerimeterTop" type="StaticBody2D" parent="."]
+position = Vector2(375, 180)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterTop"]
+shape = SubResource("RectShape_PerimeterTop")
+
+[node name="PerimeterBottom" type="StaticBody2D" parent="."]
+position = Vector2(375, 720)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterBottom"]
+shape = SubResource("RectShape_PerimeterBottom")
+
+[node name="PerimeterLeft" type="StaticBody2D" parent="."]
+position = Vector2(-20, 450)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterLeft"]
+shape = SubResource("RectShape_PerimeterLeft")
+
+[node name="PerimeterRight" type="StaticBody2D" parent="."]
+position = Vector2(770, 450)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterRight"]
+shape = SubResource("RectShape_PerimeterRight")
+
+[node name="RegroupZone" parent="." instance=ExtResource("2")]
+position = Vector2(210, 500)
+
+[node name="Nephi" parent="." instance=ExtResource("3")]
+position = Vector2(270, 400)
+
+[node name="InteractionArea" parent="Nephi"]
+npc_name = "Nephi"
+dialogue_lines = ["We have journeyed up to Jerusalem, as our father commanded.", "Laban keeps the records of our fathers -- engraven on plates of brass."]
+
+[node name="Sprite2D" parent="Nephi"]
+texture = ExtResource("4")
+
+[node name="Lemuel" parent="." instance=ExtResource("3")]
+position = Vector2(110, 580)
+
+[node name="InteractionArea" parent="Lemuel"]
+npc_name = "Lemuel"
+dialogue_lines = ["Must we really do this? Laban is not a man to trifle with.", "Still -- our father commanded it. Let us see it done."]
+
+[node name="Sprite2D" parent="Lemuel"]
+texture = ExtResource("5")
+
+[node name="Sam" parent="." instance=ExtResource("3")]
+position = Vector2(320, 580)
+
+[node name="InteractionArea" parent="Sam"]
+npc_name = "Sam"
+dialogue_lines = ["I will stand by whatever is decided.", "Whatever the Lord requires of us, we should do it."]
+
+[node name="Sprite2D" parent="Sam"]
+texture = ExtResource("6")
+
+[node name="LotCaster" parent="." instance=ExtResource("7")]
+position = Vector2(215, 500)
+
+[node name="StreetHouse1" type="StaticBody2D" parent="."]
+position = Vector2(330, 330)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StreetHouse1"]
+shape = SubResource("RectShape_StreetHouse1")
+
+[node name="Block0" type="Sprite2D" parent="StreetHouse1"]
+position = Vector2(0, -15)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("8")
+
+[node name="StreetHouse2" type="StaticBody2D" parent="."]
+position = Vector2(460, 620)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StreetHouse2"]
+shape = SubResource("RectShape_StreetHouse2")
+
+[node name="Block0" type="Sprite2D" parent="StreetHouse2"]
+position = Vector2(0, -15)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("9")
+
+[node name="StreetCrate" type="Sprite2D" parent="."]
+position = Vector2(400, 470)
+z_index = 0
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("10")
+
+[node name="LabanHouseExterior" type="StaticBody2D" parent="."]
+position = Vector2(630, 440)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LabanHouseExterior"]
+shape = SubResource("RectShape_LabanHouseExterior")
+
+[node name="Block0" type="Sprite2D" parent="LabanHouseExterior"]
+position = Vector2(-40, -25)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("9")
+
+[node name="Block1" type="Sprite2D" parent="LabanHouseExterior"]
+position = Vector2(40, -25)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("9")
+
+[node name="LabanDoorExterior" type="Sprite2D" parent="."]
+position = Vector2(630, 490)
+z_index = 0
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("11")
+
+[node name="ExteriorDoorSpawn" type="Marker2D" parent="."]
+position = Vector2(630, 550)
+
+[node name="EnterLabanHouse" parent="." instance=ExtResource("12")]
+position = Vector2(630, 500)
+target_spawn_path = NodePath("../InteriorSpawn")
+narration_lines = Array[String](["You step inside. Laban sits within, unaware of your purpose."])
+
+[node name="InteriorFloor" type="Polygon2D" parent="."]
+z_index = -10
+color = Color(0.34, 0.27, 0.19, 1)
+polygon = PackedVector2Array(1000.0, 410.0, 1560.0, 410.0, 1560.0, 610.0, 1000.0, 610.0)
+
+[node name="RoomWallTop" type="StaticBody2D" parent="."]
+position = Vector2(1280, 400)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomWallTop"]
+shape = SubResource("RectShape_RoomWallTop")
+
+[node name="RoomWallBottom" type="StaticBody2D" parent="."]
+position = Vector2(1280, 620)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomWallBottom"]
+shape = SubResource("RectShape_RoomWallBottom")
+
+[node name="RoomWallLeft" type="StaticBody2D" parent="."]
+position = Vector2(990, 510)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomWallLeft"]
+shape = SubResource("RectShape_RoomWallLeft")
+
+[node name="RoomWallRight" type="StaticBody2D" parent="."]
+position = Vector2(1570, 510)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomWallRight"]
+shape = SubResource("RectShape_RoomWallRight")
+
+[node name="InteriorSpawn" type="Marker2D" parent="."]
+position = Vector2(1090, 510)
+
+[node name="ExitLabanHouse" parent="." instance=ExtResource("12")]
+position = Vector2(1030, 510)
+target_spawn_path = NodePath("../ExteriorDoorSpawn")
+
+[node name="LabanDoorInterior" type="Sprite2D" parent="."]
+position = Vector2(1030, 510)
+z_index = 1
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("11")
+
+[node name="Pillar1" type="Polygon2D" parent="."]
+z_index = 0
+color = Color(0.4, 0.36, 0.3, 1)
+polygon = PackedVector2Array(1192.0, 405.0, 1208.0, 405.0, 1208.0, 495.0, 1192.0, 495.0)
+
+[node name="Pillar2" type="Polygon2D" parent="."]
+z_index = 0
+color = Color(0.4, 0.36, 0.3, 1)
+polygon = PackedVector2Array(1192.0, 525.0, 1208.0, 525.0, 1208.0, 615.0, 1192.0, 615.0)
+
+[node name="InteriorJar1" type="Sprite2D" parent="."]
+position = Vector2(1150, 440)
+z_index = 0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("13")
+
+[node name="InteriorJar2" type="Sprite2D" parent="."]
+position = Vector2(1360, 580)
+z_index = 0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("10")
+
+[node name="LabanMat" type="Polygon2D" parent="."]
+z_index = -5
+color = Color(0.25, 0.18, 0.12, 1)
+polygon = PackedVector2Array(1445.0, 492.5, 1515.0, 492.5, 1515.0, 527.5, 1445.0, 527.5)
+
+[node name="Laban" parent="." instance=ExtResource("14")]
+position = Vector2(1480, 510)

@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/vslice/ui/VSResourceUI.gd" id="1"]
+
+[node name="VSResourceUI" type="Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -230.0
+offset_right = -16.0
+offset_top = 16.0
+offset_bottom = 130.0
+mouse_filter = 2
+
+[node name="Background" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Margin" type="MarginContainer" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 8
+
+[node name="Content" type="VBoxContainer" parent="Background/Margin"]
+theme_override_constants/separation = 2
+
+[node name="GoldLabel" type="Label" parent="Background/Margin/Content"]
+theme_override_font_sizes/font_size = 16
+text = "Gold: 15"
+
+[node name="HeirloomLabel" type="Label" parent="Background/Margin/Content"]
+theme_override_font_sizes/font_size = 16
+text = "Heirloom: Yes"
+
+[node name="SuspicionLabel" type="Label" parent="Background/Margin/Content"]
+theme_override_font_sizes/font_size = 16
+text = "Suspicion: Low"
+
+[node name="PlatesLabel" type="Label" parent="Background/Margin/Content"]
+theme_override_font_sizes/font_size = 16
+text = "Plates: Not yet"

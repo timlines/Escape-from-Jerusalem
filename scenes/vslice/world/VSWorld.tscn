@@ -1,0 +1,412 @@
+[gd_scene load_steps=35 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/WorldBounds.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/vslice/env/ground_tile_plaza.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/vslice/env/ground_tile_danger.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/vslice/env/wall_block_home.png" id="4"]
+[ext_resource type="Texture2D" path="res://assets/vslice/env/door.png" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/vslice/npc/FamilyMember.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://scenes/vslice/npc/VSNPC.tscn" id="7"]
+[ext_resource type="Texture2D" path="res://assets/vslice/characters/family_elder.png" id="8"]
+[ext_resource type="Texture2D" path="res://assets/vslice/env/stall.png" id="9"]
+[ext_resource type="Texture2D" path="res://assets/vslice/env/stall_alt.png" id="10"]
+[ext_resource type="Texture2D" path="res://assets/vslice/characters/vendor_cloth.png" id="11"]
+[ext_resource type="Texture2D" path="res://assets/vslice/characters/vendor_fruit.png" id="12"]
+[ext_resource type="Texture2D" path="res://assets/vslice/characters/beggar.png" id="13"]
+[ext_resource type="PackedScene" path="res://scenes/vslice/interactables/VSInteractableSign.tscn" id="14"]
+[ext_resource type="Texture2D" path="res://assets/vslice/env/wall_block_danger.png" id="15"]
+[ext_resource type="PackedScene" path="res://scenes/vslice/npc/ShadyContact.tscn" id="16"]
+[ext_resource type="Texture2D" path="res://assets/vslice/env/wall_block.png" id="17"]
+[ext_resource type="PackedScene" path="res://scenes/vslice/npc/Laban.tscn" id="18"]
+[ext_resource type="Texture2D" path="res://assets/vslice/items/brass_plates.png" id="19"]
+[ext_resource type="Texture2D" path="res://assets/vslice/env/prop_crate.png" id="20"]
+[ext_resource type="Texture2D" path="res://assets/vslice/env/prop_jar.png" id="21"]
+
+[sub_resource type="RectangleShape2D" id="RectShape_PerimeterTop"]
+size = Vector2(1500, 40)
+
+[sub_resource type="RectangleShape2D" id="RectShape_PerimeterBottom"]
+size = Vector2(1500, 40)
+
+[sub_resource type="RectangleShape2D" id="RectShape_PerimeterLeft"]
+size = Vector2(40, 900)
+
+[sub_resource type="RectangleShape2D" id="RectShape_PerimeterRight"]
+size = Vector2(40, 900)
+
+[sub_resource type="RectangleShape2D" id="RectShape_HomeBuilding"]
+size = Vector2(150, 90)
+
+[sub_resource type="RectangleShape2D" id="RectShape_Stall1"]
+size = Vector2(56, 36)
+
+[sub_resource type="RectangleShape2D" id="RectShape_Stall2"]
+size = Vector2(56, 36)
+
+[sub_resource type="RectangleShape2D" id="RectShape_Stall3"]
+size = Vector2(56, 36)
+
+[sub_resource type="RectangleShape2D" id="RectShape_AlleyWallLeft"]
+size = Vector2(90, 160)
+
+[sub_resource type="RectangleShape2D" id="RectShape_AlleyWallRight"]
+size = Vector2(90, 160)
+
+[sub_resource type="RectangleShape2D" id="RectShape_LabanBuilding"]
+size = Vector2(170, 110)
+
+[sub_resource type="RectangleShape2D" id="RectShape_UpperCityGatePostL"]
+size = Vector2(60, 100)
+
+[sub_resource type="RectangleShape2D" id="RectShape_UpperCityGatePostR"]
+size = Vector2(60, 100)
+
+[node name="VSWorld" type="Node2D"]
+
+[node name="WorldBounds" type="Node2D" parent="."]
+script = ExtResource("1")
+bounds_size = Vector2(1400, 900)
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(150, 500)
+
+[node name="GroundBase" type="Polygon2D" parent="."]
+z_index = -10
+color = Color(0.55, 0.47, 0.36, 1)
+polygon = PackedVector2Array(0, 100, 1400, 100, 1400, 900, 0, 900)
+
+[node name="GroundAccent0" type="Sprite2D" parent="."]
+position = Vector2(170, 500)
+z_index = -5
+scale = Vector2(1.0, 1.0)
+texture = ExtResource("2")
+
+[node name="GroundAccent1" type="Sprite2D" parent="."]
+position = Vector2(230, 500)
+z_index = -5
+scale = Vector2(1.0, 1.0)
+texture = ExtResource("2")
+
+[node name="GroundAccent2" type="Sprite2D" parent="."]
+position = Vector2(600, 500)
+z_index = -5
+scale = Vector2(1.0, 1.0)
+texture = ExtResource("2")
+
+[node name="GroundAccent3" type="Sprite2D" parent="."]
+position = Vector2(660, 500)
+z_index = -5
+scale = Vector2(1.0, 1.0)
+texture = ExtResource("2")
+
+[node name="GroundAccent4" type="Sprite2D" parent="."]
+position = Vector2(720, 500)
+z_index = -5
+scale = Vector2(1.0, 1.0)
+texture = ExtResource("2")
+
+[node name="GroundAccent5" type="Sprite2D" parent="."]
+position = Vector2(620, 560)
+z_index = -5
+scale = Vector2(1.0, 1.0)
+texture = ExtResource("2")
+
+[node name="GroundAccent6" type="Sprite2D" parent="."]
+position = Vector2(700, 560)
+z_index = -5
+scale = Vector2(1.0, 1.0)
+texture = ExtResource("2")
+
+[node name="GroundAccent7" type="Sprite2D" parent="."]
+position = Vector2(1000, 500)
+z_index = -5
+scale = Vector2(1.0, 1.0)
+texture = ExtResource("2")
+
+[node name="GroundAccent8" type="Sprite2D" parent="."]
+position = Vector2(1060, 500)
+z_index = -5
+scale = Vector2(1.0, 1.0)
+texture = ExtResource("2")
+
+[node name="DangerAccent0" type="Sprite2D" parent="."]
+position = Vector2(650, 760)
+z_index = -5
+scale = Vector2(1.0, 1.0)
+texture = ExtResource("3")
+
+[node name="DangerAccent1" type="Sprite2D" parent="."]
+position = Vector2(700, 800)
+z_index = -5
+scale = Vector2(1.0, 1.0)
+texture = ExtResource("3")
+
+[node name="DangerAccent2" type="Sprite2D" parent="."]
+position = Vector2(620, 820)
+z_index = -5
+scale = Vector2(1.0, 1.0)
+texture = ExtResource("3")
+
+[node name="PerimeterTop" type="StaticBody2D" parent="."]
+position = Vector2(700, 80)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterTop"]
+shape = SubResource("RectShape_PerimeterTop")
+
+[node name="PerimeterBottom" type="StaticBody2D" parent="."]
+position = Vector2(700, 920)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterBottom"]
+shape = SubResource("RectShape_PerimeterBottom")
+
+[node name="PerimeterLeft" type="StaticBody2D" parent="."]
+position = Vector2(-20, 500)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterLeft"]
+shape = SubResource("RectShape_PerimeterLeft")
+
+[node name="PerimeterRight" type="StaticBody2D" parent="."]
+position = Vector2(1420, 500)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterRight"]
+shape = SubResource("RectShape_PerimeterRight")
+
+[node name="HomeBuilding" type="StaticBody2D" parent="."]
+position = Vector2(190, 400)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HomeBuilding"]
+shape = SubResource("RectShape_HomeBuilding")
+
+[node name="Block0" type="Sprite2D" parent="HomeBuilding"]
+position = Vector2(-35, -20)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("4")
+
+[node name="Block1" type="Sprite2D" parent="HomeBuilding"]
+position = Vector2(35, -20)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("4")
+
+[node name="HomeDoor" type="Sprite2D" parent="."]
+position = Vector2(190, 445)
+z_index = 0
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5")
+
+[node name="FamilyMember" parent="." instance=ExtResource("6")]
+position = Vector2(230, 480)
+
+[node name="Neighbor" parent="." instance=ExtResource("7")]
+position = Vector2(380, 470)
+npc_name = "Neighbor"
+default_lines = Array[String](["The family's leaving soon, aren't they? Strange times.", "If you're looking to trade with someone, ask for Laban.", "His storeroom is past the marketplace, toward the east wall."])
+teaches_fact = "laban_location"
+
+[node name="Sprite2D" parent="Neighbor"]
+texture = ExtResource("8")
+
+[node name="Stall1" type="StaticBody2D" parent="."]
+position = Vector2(590, 380)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stall1"]
+shape = SubResource("RectShape_Stall1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stall1"]
+position = Vector2(0, -20)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("9")
+
+[node name="Stall2" type="StaticBody2D" parent="."]
+position = Vector2(680, 380)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stall2"]
+shape = SubResource("RectShape_Stall2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stall2"]
+position = Vector2(0, -20)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("10")
+
+[node name="Stall3" type="StaticBody2D" parent="."]
+position = Vector2(770, 380)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stall3"]
+shape = SubResource("RectShape_Stall3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stall3"]
+position = Vector2(0, -20)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("9")
+
+[node name="ClothVendor" parent="." instance=ExtResource("7")]
+position = Vector2(620, 520)
+npc_name = "Cloth Merchant"
+default_lines = Array[String](["Fine cloth, dyed proper -- not that you've got coin to spare.", "Laban? He doesn't trade with strangers anymore. Got burned once too often."])
+teaches_fact = "laban_distrustful"
+waypoints_path = NodePath("Waypoints")
+
+[node name="Sprite2D" parent="ClothVendor"]
+texture = ExtResource("11")
+
+[node name="Waypoints" type="Node2D" parent="ClothVendor"]
+
+[node name="WP0" type="Marker2D" parent="ClothVendor/Waypoints"]
+position = Vector2(0, 0)
+
+[node name="WP1" type="Marker2D" parent="ClothVendor/Waypoints"]
+position = Vector2(90, 10)
+
+[node name="FruitVendor" parent="." instance=ExtResource("7")]
+position = Vector2(780, 500)
+npc_name = "Fruit Seller"
+default_lines = Array[String](["Dates, figs, whatever's left before the day's done.", "Funny thing -- Laban's been asking around about an old family lamp.", "Sounds like he wants something specific, not just coin."])
+teaches_fact = "laban_wants_heirloom"
+waypoints_path = NodePath("Waypoints")
+
+[node name="Sprite2D" parent="FruitVendor"]
+texture = ExtResource("12")
+
+[node name="Waypoints" type="Node2D" parent="FruitVendor"]
+
+[node name="WP0" type="Marker2D" parent="FruitVendor/Waypoints"]
+position = Vector2(0, 0)
+
+[node name="WP1" type="Marker2D" parent="FruitVendor/Waypoints"]
+position = Vector2(-70, 20)
+
+[node name="Beggar" parent="." instance=ExtResource("7")]
+position = Vector2(560, 570)
+npc_name = "Beggar"
+default_lines = Array[String](["Spare a coin? ...No? Then move along."])
+teaches_fact = "laban_debt_reason"
+requires_fact = "laban_wants_heirloom"
+gated_lines = Array[String](["You want to know why he's so desperate? Debt.", "Laban owes silver to the temple treasury. That's the whole of it."])
+
+[node name="Sprite2D" parent="Beggar"]
+texture = ExtResource("13")
+
+[node name="AlleyWarningSign" parent="." instance=ExtResource("14")]
+position = Vector2(650, 660)
+display_name = ""
+message_lines = Array[String](["The alley grows narrow and dark here.", "Best not to linger without reason."])
+
+[node name="AlleyWallLeft" type="StaticBody2D" parent="."]
+position = Vector2(590, 780)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlleyWallLeft"]
+shape = SubResource("RectShape_AlleyWallLeft")
+
+[node name="Block0" type="Sprite2D" parent="AlleyWallLeft"]
+position = Vector2(0, -30)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("15")
+
+[node name="AlleyWallRight" type="StaticBody2D" parent="."]
+position = Vector2(770, 780)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlleyWallRight"]
+shape = SubResource("RectShape_AlleyWallRight")
+
+[node name="Block0" type="Sprite2D" parent="AlleyWallRight"]
+position = Vector2(0, -30)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("15")
+
+[node name="ShadyContact" parent="." instance=ExtResource("16")]
+position = Vector2(680, 830)
+
+[node name="LabanBuilding" type="StaticBody2D" parent="."]
+position = Vector2(1040, 460)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LabanBuilding"]
+shape = SubResource("RectShape_LabanBuilding")
+
+[node name="Block0" type="Sprite2D" parent="LabanBuilding"]
+position = Vector2(-40, -25)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("17")
+
+[node name="Block1" type="Sprite2D" parent="LabanBuilding"]
+position = Vector2(40, -25)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("17")
+
+[node name="LabanDoor" type="Sprite2D" parent="."]
+position = Vector2(1040, 510)
+z_index = 0
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5")
+
+[node name="Laban" parent="." instance=ExtResource("18")]
+position = Vector2(1030, 480)
+
+[node name="PlatesProp" type="Sprite2D" parent="."]
+position = Vector2(1075, 470)
+z_index = 0
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("19")
+
+[node name="CrateProp1" type="Sprite2D" parent="."]
+position = Vector2(970, 520)
+z_index = 0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("20")
+
+[node name="JarProp1" type="Sprite2D" parent="."]
+position = Vector2(1100, 520)
+z_index = 0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("21")
+
+[node name="UpperCityGatePostL" type="StaticBody2D" parent="."]
+position = Vector2(1230, 430)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperCityGatePostL"]
+shape = SubResource("RectShape_UpperCityGatePostL")
+
+[node name="Block0" type="Sprite2D" parent="UpperCityGatePostL"]
+position = Vector2(0, -20)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("17")
+
+[node name="UpperCityGatePostR" type="StaticBody2D" parent="."]
+position = Vector2(1230, 560)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperCityGatePostR"]
+shape = SubResource("RectShape_UpperCityGatePostR")
+
+[node name="Block0" type="Sprite2D" parent="UpperCityGatePostR"]
+position = Vector2(0, -20)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("17")
+
+[node name="UpperCitySign" parent="." instance=ExtResource("14")]
+position = Vector2(1230, 495)
+display_name = ""
+message_lines = Array[String](["Steps lead up toward the Upper City.", "Not tonight. There's still work to do below."])
