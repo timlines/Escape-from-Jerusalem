@@ -32,6 +32,7 @@ func advance_to(index: int) -> void:
 		return
 	current_index = index
 	objective_changed.emit(OBJECTIVES[current_index])
+	AudioManager.play_sfx("positive")
 
 
 func get_current_text() -> String:

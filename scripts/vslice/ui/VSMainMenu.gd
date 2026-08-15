@@ -9,4 +9,5 @@ func _ready() -> void:
 
 
 func _on_start_pressed() -> void:
+	AudioManager.play_sfx("interact")
 	VSGameManager.start_slice()

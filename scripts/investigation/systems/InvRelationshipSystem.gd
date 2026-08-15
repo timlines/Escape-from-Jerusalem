@@ -33,6 +33,10 @@ func add_trust(npc_id: String, amount: int) -> void:
 	var updated: int = clampi(current + amount, MIN_TRUST, MAX_TRUST)
 	_trust[npc_id] = updated
 	trust_changed.emit(npc_id, updated)
+	if amount > 0:
+		AudioManager.play_sfx("positive")
+	elif amount < 0:
+		AudioManager.play_sfx("negative")
 
 
 func get_attitude(npc_id: String) -> String:

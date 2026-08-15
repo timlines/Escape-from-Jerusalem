@@ -52,6 +52,7 @@ func add_record(fact_id: String, subject: String, claim: String, source: String,
 			InvGameState.total_minutes)
 		_records[fact_id] = record
 		record_added.emit(fact_id)
+		AudioManager.play_sfx("positive")
 	_apply_contradictions(fact_id)
 	_apply_corroborations(fact_id)
 
@@ -69,6 +70,7 @@ func _apply_contradictions(fact_id: String) -> void:
 			continue
 		var mine: InfoRecord = _records[fact_id]
 		var theirs: InfoRecord = _records[other_id]
+		var is_new_contradiction := mine.status != InfoRecord.STATUS_CONTRADICTED
 		mine.status = InfoRecord.STATUS_CONTRADICTED
 		theirs.status = InfoRecord.STATUS_CONTRADICTED
 		if not mine.contradicts.has(other_id):
@@ -77,6 +79,8 @@ func _apply_contradictions(fact_id: String) -> void:
 			theirs.contradicts.append(fact_id)
 		record_updated.emit(fact_id)
 		record_updated.emit(other_id)
+		if is_new_contradiction:
+			AudioManager.play_sfx("negative")
 
 
 func _apply_corroborations(fact_id: String) -> void:

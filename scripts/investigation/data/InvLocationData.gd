@@ -58,7 +58,7 @@ const ZONE_ORDER: Array[String] = [
 ]
 
 
-func get_name(zone_id: String) -> String:
+func get_zone_name(zone_id: String) -> String:
 	return String(ZONES.get(zone_id, {}).get("name", zone_id))
 
 

@@ -108,8 +108,10 @@ func _build_card(entry: Dictionary) -> Control:
 
 
 func _on_play_pressed(scene_path: String) -> void:
+	AudioManager.play_sfx("interact")
 	get_tree().change_scene_to_file(scene_path)
 
 
 func _on_quit_pressed() -> void:
+	AudioManager.play_sfx("interact")
 	get_tree().quit()

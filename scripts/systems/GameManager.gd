@@ -7,7 +7,10 @@ extends Node
 signal act_one_completed
 
 const MAIN_SCENE := "res://scenes/main/Main.tscn"
-const MAIN_MENU_SCENE := "res://scenes/main/MainMenu.tscn"
+# Finishing a run sends the player back to the version-selector launcher
+# (not this build's own greybox menu), so every version's ending funnels
+# back to the same place.
+const MAIN_MENU_SCENE := "res://scenes/launcher/LauncherMenu.tscn"
 
 var act_one_complete: bool = false
 
@@ -29,3 +32,4 @@ func complete_act_one() -> void:
 		return
 	act_one_complete = true
 	act_one_completed.emit()
+	AudioManager.play_sfx("success")

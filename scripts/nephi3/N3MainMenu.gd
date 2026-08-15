@@ -11,4 +11,5 @@ func _ready() -> void:
 
 
 func _on_start_pressed() -> void:
+	AudioManager.play_sfx("interact")
 	get_tree().change_scene_to_file("res://scenes/nephi3/main/N3Main.tscn")

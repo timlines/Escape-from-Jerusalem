@@ -9,7 +9,10 @@ extends Node
 signal investigation_completed
 
 const MAIN_SCENE := "res://scenes/investigation/main/InvMain.tscn"
-const MENU_SCENE := "res://scenes/investigation/main/InvMainMenu.tscn"
+# Finishing a run sends the player back to the version-selector launcher
+# (not this build's own menu), so every version's ending funnels back to
+# the same place.
+const MENU_SCENE := "res://scenes/launcher/LauncherMenu.tscn"
 
 var is_complete: bool = false
 
@@ -30,3 +33,4 @@ func complete_investigation() -> void:
 		return
 	is_complete = true
 	investigation_completed.emit()
+	AudioManager.play_sfx("success")

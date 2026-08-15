@@ -28,9 +28,15 @@ func _ready() -> void:
 	InvGameState.time_advanced.connect(func(_minutes): _refresh_time())
 	InvGameState.time_block_changed.connect(func(_block): _refresh_time())
 
-	journal_button.pressed.connect(func(): journal_requested.emit())
-	people_button.pressed.connect(func(): people_requested.emit())
-	wait_button.pressed.connect(func(): wait_popup.visible = true)
+	journal_button.pressed.connect(func():
+		AudioManager.play_sfx("interact")
+		journal_requested.emit())
+	people_button.pressed.connect(func():
+		AudioManager.play_sfx("interact")
+		people_requested.emit())
+	wait_button.pressed.connect(func():
+		AudioManager.play_sfx("interact")
+		wait_popup.visible = true)
 	wait_30_button.pressed.connect(func(): _do_wait(WAIT_OPTIONS[0]))
 	wait_60_button.pressed.connect(func(): _do_wait(WAIT_OPTIONS[1]))
 	wait_120_button.pressed.connect(func(): _do_wait(WAIT_OPTIONS[2]))
@@ -48,7 +54,7 @@ func _do_wait(minutes: int) -> void:
 
 
 func _refresh_location() -> void:
-	location_label.text = InvLocationData.get_name(InvGameState.current_location)
+	location_label.text = InvLocationData.get_zone_name(InvGameState.current_location)
 
 
 func _refresh_time() -> void:

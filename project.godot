@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+AudioManager="*res://scripts/systems/AudioManager.gd"
 GameManager="*res://scripts/systems/GameManager.gd"
 ObjectiveManager="*res://scripts/systems/ObjectiveManager.gd"
 DialogueManager="*res://scripts/systems/DialogueManager.gd"

@@ -6,7 +6,10 @@ extends Node
 signal slice_completed
 
 const MAIN_SCENE := "res://scenes/vslice/main/VSMain.tscn"
-const MENU_SCENE := "res://scenes/vslice/main/VSMainMenu.tscn"
+# Finishing a run sends the player back to the version-selector launcher
+# (not this build's own menu), so every version's ending funnels back to
+# the same place.
+const MENU_SCENE := "res://scenes/launcher/LauncherMenu.tscn"
 
 var slice_complete: bool = false
 

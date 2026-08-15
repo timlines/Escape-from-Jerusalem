@@ -12,6 +12,7 @@ func _ready() -> void:
 
 func show_screen() -> void:
 	visible = true
+	AudioManager.play_sfx("success")
 
 
 func _on_menu_button_pressed() -> void:

@@ -12,10 +12,13 @@ extends CharacterBody2D
 signal interactable_in_range_changed(has_target: bool)
 
 const SPEED: float = 220.0
+const FOOTSTEP_INTERVAL: float = 0.35
+const FOOTSTEP_MIN_SPEED: float = 10.0
 
 # Interactables currently overlapping the interaction area, nearest first.
 var _nearby_interactables: Array[Area2D] = []
 var _current_target: Area2D = null
+var _footstep_timer: float = 0.0
 
 @onready var interaction_area: Area2D = $InteractionArea
 
@@ -26,12 +29,25 @@ func _ready() -> void:
 	interaction_area.area_exited.connect(_on_interaction_area_exited)
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	velocity = _get_movement_input() * SPEED
 	move_and_slide()
+	_update_footsteps(delta)
 
 	if _wants_interact():
 		_try_interact()
+
+
+## Plays a footstep sound on a fixed interval while the player is actually
+## moving, so footsteps don't fire while idle or blocked by a wall.
+func _update_footsteps(delta: float) -> void:
+	if velocity.length() < FOOTSTEP_MIN_SPEED:
+		_footstep_timer = 0.0
+		return
+	_footstep_timer -= delta
+	if _footstep_timer <= 0.0:
+		_footstep_timer = FOOTSTEP_INTERVAL
+		AudioManager.play_sfx("step")
 
 
 ## Combines keyboard axis input with the touch joystick vector so both
@@ -55,6 +71,7 @@ func _try_interact() -> void:
 		return
 	if _current_target != null and _current_target.has_method("interact"):
 		_current_target.interact()
+		AudioManager.play_sfx("interact")
 
 
 func _on_interaction_area_entered(area: Area2D) -> void:

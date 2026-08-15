@@ -77,6 +77,7 @@ func set_quest_stage(index: int) -> void:
 		return
 	quest_stage_index = index
 	quest_stage_changed.emit(QUEST_STAGES[quest_stage_index])
+	AudioManager.play_sfx("positive")
 
 
 func get_quest_stage_text() -> String:
@@ -117,6 +118,7 @@ func mark_plates_obtained(method: String) -> void:
 		stole_plates = true
 	flags_changed.emit()
 	set_quest_stage(3)
+	AudioManager.play_sfx("success")
 
 
 func suspicion_label() -> String:
