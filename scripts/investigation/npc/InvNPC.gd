@@ -51,7 +51,7 @@ func _target_position() -> Vector2:
 ## gate guards) don't stand exactly on top of each other.
 func _spread_offset() -> Vector2:
 	var h := hash(npc_id)
-	return Vector2((h % 41) - 20, ((h / 41) % 41) - 20)
+	return Vector2((h % 401) - 200, ((h / 41) % 401) - 200)
 
 
 ## Called by InvInteractionForwarder when the player interacts with this NPC.

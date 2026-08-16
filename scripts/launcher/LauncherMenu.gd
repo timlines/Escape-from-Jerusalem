@@ -115,3 +115,11 @@ func _on_play_pressed(scene_path: String) -> void:
 func _on_quit_pressed() -> void:
 	AudioManager.play_sfx("interact")
 	get_tree().quit()
+	
+	
+func _get_current_version() -> Dictionary:
+	for entry in AVAILABLE_VERSIONS:
+		if entry["status"] == "Current":
+			return entry
+
+	return {}
