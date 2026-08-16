@@ -45,11 +45,45 @@ const AVAILABLE_VERSIONS: Array[Dictionary] = [
 @onready var button_list: VBoxContainer = $Center/Box/Scroll/ButtonList
 @onready var quit_button: Button = $Center/Box/QuitButton
 
+@onready var main_menu: VBoxContainer = $Center/Box/MainMenu
+@onready var play_button: Button = $Center/Box/MainMenu/PlayButton
+@onready var versions_button: Button = $Center/Box/MainMenu/VersionsButton
+@onready var scroll: ScrollContainer = $Center/Box/Scroll
+
 
 func _ready() -> void:
 	for entry in AVAILABLE_VERSIONS:
 		button_list.add_child(_build_card(entry))
+
+	play_button.pressed.connect(_on_play_current_pressed)
+	versions_button.pressed.connect(_on_versions_pressed)
 	quit_button.pressed.connect(_on_quit_pressed)
+
+	scroll.visible = false
+
+func _on_play_current_pressed() -> void:
+	AudioManager.play_sfx("interact")
+
+	var current_version := _get_current_version()
+
+	if current_version.is_empty():
+		return
+
+	get_tree().change_scene_to_file(current_version["scene_path"])
+
+
+func _on_versions_pressed() -> void:
+	AudioManager.play_sfx("interact")
+
+	main_menu.visible = false
+	scroll.visible = true
+	
+func _get_current_version() -> Dictionary:
+	for entry in AVAILABLE_VERSIONS:
+		if entry["status"] == "Current":
+			return entry
+
+	return {}
 
 
 func _build_card(entry: Dictionary) -> Control:
@@ -116,10 +150,3 @@ func _on_quit_pressed() -> void:
 	AudioManager.play_sfx("interact")
 	get_tree().quit()
 	
-	
-func _get_current_version() -> Dictionary:
-	for entry in AVAILABLE_VERSIONS:
-		if entry["status"] == "Current":
-			return entry
-
-	return {}
