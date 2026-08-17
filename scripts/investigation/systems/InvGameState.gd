@@ -72,7 +72,8 @@ func advance_time(minutes: int) -> void:
 
 
 func get_block_index() -> int:
-	return int(total_minutes / BLOCK_LENGTH_MINUTES) % BLOCK_NAMES.size()
+	var minutes_since_day_start := total_minutes - DAY_START_MINUTE
+	return int(minutes_since_day_start / BLOCK_LENGTH_MINUTES) % BLOCK_NAMES.size()
 
 
 func get_block_name() -> String:
