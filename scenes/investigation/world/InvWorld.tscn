@@ -15,498 +15,665 @@
 [ext_resource type="PackedScene" path="res://scenes/investigation/npc/InvNPC.tscn" id="13"]
 [ext_resource type="PackedScene" path="res://scenes/investigation/npc/InvLaban.tscn" id="14"]
 
-[sub_resource type="RectangleShape2D" id="RectShape_PerimeterTop"]
-size = Vector2(2600, 40)
+[sub_resource type="RectangleShape2D" id="RectShape_PerimeterH"]
+size = Vector2(2480, 40)
 
-[sub_resource type="RectangleShape2D" id="RectShape_PerimeterBottom"]
-size = Vector2(2600, 40)
-
-[sub_resource type="RectangleShape2D" id="RectShape_PerimeterLeft"]
-size = Vector2(40, 1150)
-
-[sub_resource type="RectangleShape2D" id="RectShape_PerimeterRight"]
-size = Vector2(40, 1150)
+[sub_resource type="RectangleShape2D" id="RectShape_PerimeterV"]
+size = Vector2(40, 1800)
 
 [sub_resource type="RectangleShape2D" id="RectShape_HomeBuilding"]
 size = Vector2(150, 90)
 
-[sub_resource type="RectangleShape2D" id="RectShape_ZoneFamilyHouse"]
-size = Vector2(220, 200)
-
-[sub_resource type="RectangleShape2D" id="RectShape_Stall"]
-size = Vector2(56, 36)
-
-[sub_resource type="RectangleShape2D" id="RectShape_ZoneMerchantHouse"]
-size = Vector2(320, 240)
+[sub_resource type="RectangleShape2D" id="RectShape_ZoneFamilyHome"]
+size = Vector2(440, 320)
 
 [sub_resource type="RectangleShape2D" id="RectShape_PotterHut"]
 size = Vector2(140, 90)
 
-[sub_resource type="RectangleShape2D" id="RectShape_ZonePotterShop"]
-size = Vector2(260, 220)
-
-[sub_resource type="RectangleShape2D" id="RectShape_StableBuilding"]
+[sub_resource type="RectangleShape2D" id="RectShape_StableYard"]
 size = Vector2(160, 90)
 
-[sub_resource type="RectangleShape2D" id="RectShape_ZoneStable"]
-size = Vector2(280, 220)
+[sub_resource type="RectangleShape2D" id="RectShape_LowerHouse"]
+size = Vector2(130, 80)
+
+[sub_resource type="RectangleShape2D" id="RectShape_ZoneLowerCity"]
+size = Vector2(820, 500)
+
+[sub_resource type="RectangleShape2D" id="RectShape_Stall"]
+size = Vector2(56, 36)
+
+[sub_resource type="RectangleShape2D" id="RectShape_ZoneMarketplace"]
+size = Vector2(500, 430)
+
+[sub_resource type="RectangleShape2D" id="RectShape_AlleyBlock"]
+size = Vector2(140, 70)
+
+[sub_resource type="RectangleShape2D" id="RectShape_AlleyBlockSmall"]
+size = Vector2(90, 60)
+
+[sub_resource type="RectangleShape2D" id="RectShape_DeadEndSideWall"]
+size = Vector2(30, 140)
+
+[sub_resource type="RectangleShape2D" id="RectShape_DeadEndBackWall"]
+size = Vector2(180, 30)
+
+[sub_resource type="RectangleShape2D" id="RectShape_ZoneAlleysMain"]
+size = Vector2(230, 180)
+
+[sub_resource type="RectangleShape2D" id="RectShape_ZoneAlleysBranch"]
+size = Vector2(120, 120)
+
+[sub_resource type="RectangleShape2D" id="RectShape_TempleBuildingMain"]
+size = Vector2(90, 160)
+
+[sub_resource type="RectangleShape2D" id="RectShape_TempleBuildingSide"]
+size = Vector2(60, 110)
+
+[sub_resource type="RectangleShape2D" id="RectShape_ZoneTempleDistrict"]
+size = Vector2(510, 380)
+
+[sub_resource type="RectangleShape2D" id="RectShape_StoneHouseBuilding"]
+size = Vector2(150, 90)
 
 [sub_resource type="RectangleShape2D" id="RectShape_GatePost"]
 size = Vector2(60, 100)
 
-[sub_resource type="RectangleShape2D" id="RectShape_ZoneEasternGate"]
-size = Vector2(280, 220)
+[sub_resource type="RectangleShape2D" id="RectShape_ZoneUpperCity"]
+size = Vector2(510, 450)
 
-[sub_resource type="RectangleShape2D" id="RectShape_Watchtower"]
-size = Vector2(70, 140)
+[sub_resource type="RectangleShape2D" id="RectShape_StoreroomBuilding"]
+size = Vector2(110, 90)
 
-[sub_resource type="RectangleShape2D" id="RectShape_ZoneWatchtower"]
-size = Vector2(260, 220)
+[sub_resource type="RectangleShape2D" id="RectShape_ZoneStoreroom"]
+size = Vector2(150, 210)
 
-[sub_resource type="RectangleShape2D" id="RectShape_StoneHouse"]
-size = Vector2(150, 90)
+[node name="InvWorld" type="Node2D"]
 
-[sub_resource type="RectangleShape2D" id="RectShape_ZoneStoneHouse"]
-size = Vector2(280, 220)
-
-[sub_resource type="RectangleShape2D" id="RectShape_ZoneCaravanRoad"]
-size = Vector2(320, 240)
-
-[node name="InvWorld" type="Node2D" unique_id=832406104]
-
-[node name="WorldBounds" type="Node2D" parent="." unique_id=583372917]
+[node name="WorldBounds" type="Node2D" parent="."]
 script = ExtResource("1")
-bounds_size = Vector2(2600, 1150)
+bounds_size = Vector2(2480, 1800)
 
-[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1220401124]
-position = Vector2(230, 760)
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(330, 1660)
 
-[node name="GroundBase" type="Polygon2D" parent="." unique_id=410783372]
+[node name="GroundBase" type="Polygon2D" parent="."]
 z_index = -10
 color = Color(0.55, 0.47, 0.36, 1)
-polygon = PackedVector2Array(0, 60, 2600, 60, 2600, 1150, 0, 1150)
+polygon = PackedVector2Array(0, 60, 2480, 60, 2480, 1800, 0, 1800)
 
-[node name="HillsGroundOverlay" type="Polygon2D" parent="." unique_id=1926950408]
+[node name="LowerCityGroundOverlay" type="Polygon2D" parent="."]
 z_index = -9
-color = Color(0.5, 0.52, 0.42, 0.55)
-polygon = PackedVector2Array(1400, 60, 2600, 60, 2600, 1150, 1400, 1150)
+color = Color(0.48, 0.5, 0.34, 0.5)
+polygon = PackedVector2Array(60, 780, 980, 780, 980, 1780, 60, 1780)
 
-[node name="GroundAccent0" type="Sprite2D" parent="." unique_id=1882989749]
-z_index = -5
-position = Vector2(470, 470)
-texture = ExtResource("2")
+[node name="MarketplaceGroundOverlay" type="Polygon2D" parent="."]
+z_index = -9
+color = Color(0.72, 0.6, 0.4, 0.5)
+polygon = PackedVector2Array(980, 700, 1520, 700, 1520, 1220, 980, 1220)
 
-[node name="GroundAccent1" type="Sprite2D" parent="." unique_id=1105868629]
-z_index = -5
-position = Vector2(560, 900)
-texture = ExtResource("2")
+[node name="AlleysGroundOverlay" type="Polygon2D" parent="."]
+z_index = -9
+color = Color(0.4, 0.38, 0.4, 0.55)
+polygon = PackedVector2Array(1480, 460, 1780, 460, 1780, 820, 1480, 820)
 
-[node name="GroundAccent2" type="Sprite2D" parent="." unique_id=1086842508]
-z_index = -5
-position = Vector2(870, 470)
-texture = ExtResource("2")
+[node name="TempleGroundOverlay" type="Polygon2D" parent="."]
+z_index = -9
+color = Color(0.78, 0.78, 0.75, 0.55)
+polygon = PackedVector2Array(1730, 60, 2280, 60, 2280, 480, 1730, 480)
 
-[node name="GroundAccent3" type="Sprite2D" parent="." unique_id=788033408]
-z_index = -5
-position = Vector2(1010, 900)
-texture = ExtResource("2")
+[node name="UpperCityGroundOverlay" type="Polygon2D" parent="."]
+z_index = -9
+color = Color(0.75, 0.65, 0.35, 0.45)
+polygon = PackedVector2Array(1730, 480, 2280, 480, 2280, 970, 1730, 970)
 
-[node name="DangerAccent0" type="Sprite2D" parent="." unique_id=524691215]
-z_index = -5
-position = Vector2(1500, 320)
-texture = ExtResource("3")
+[node name="StoreroomGroundOverlay" type="Polygon2D" parent="."]
+z_index = -9
+color = Color(0.45, 0.32, 0.2, 0.6)
+polygon = PackedVector2Array(2260, 310, 2450, 310, 2450, 560, 2260, 560)
 
-[node name="DangerAccent1" type="Sprite2D" parent="." unique_id=1749146310]
-z_index = -5
-position = Vector2(1900, 660)
-texture = ExtResource("3")
-
-[node name="DangerAccent2" type="Sprite2D" parent="." unique_id=122769116]
-z_index = -5
-position = Vector2(2300, 960)
-texture = ExtResource("3")
-
-[node name="PerimeterTop" type="StaticBody2D" parent="." unique_id=223453016]
-position = Vector2(1300, 20)
+[node name="PerimeterTop" type="StaticBody2D" parent="."]
+position = Vector2(1240, 20)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterTop" unique_id=136850346]
-shape = SubResource("RectShape_PerimeterTop")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterTop"]
+shape = SubResource("RectShape_PerimeterH")
 
-[node name="PerimeterBottom" type="StaticBody2D" parent="." unique_id=1196206569]
-position = Vector2(1300, 1130)
+[node name="PerimeterBottom" type="StaticBody2D" parent="."]
+position = Vector2(1240, 1780)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterBottom" unique_id=57599835]
-shape = SubResource("RectShape_PerimeterBottom")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterBottom"]
+shape = SubResource("RectShape_PerimeterH")
 
-[node name="PerimeterLeft" type="StaticBody2D" parent="." unique_id=548819813]
-position = Vector2(20, 575)
+[node name="PerimeterLeft" type="StaticBody2D" parent="."]
+position = Vector2(20, 900)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterLeft" unique_id=1474231716]
-shape = SubResource("RectShape_PerimeterLeft")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterLeft"]
+shape = SubResource("RectShape_PerimeterV")
 
-[node name="PerimeterRight" type="StaticBody2D" parent="." unique_id=407109312]
-position = Vector2(2580, 575)
+[node name="PerimeterRight" type="StaticBody2D" parent="."]
+position = Vector2(2460, 900)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterRight" unique_id=1867031014]
-shape = SubResource("RectShape_PerimeterRight")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerimeterRight"]
+shape = SubResource("RectShape_PerimeterV")
 
-[node name="FamilyHouseArea" type="Node2D" parent="." unique_id=560924158]
+[node name="FamilyHomeArea" type="Node2D" parent="."]
 
-[node name="HomeBuilding" type="StaticBody2D" parent="FamilyHouseArea" unique_id=1155436558]
-position = Vector2(150, 660)
+[node name="HomeBuilding" type="StaticBody2D" parent="FamilyHomeArea"]
+position = Vector2(330, 1500)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FamilyHouseArea/HomeBuilding" unique_id=899762098]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FamilyHomeArea/HomeBuilding"]
 shape = SubResource("RectShape_HomeBuilding")
 
-[node name="Block0" type="Sprite2D" parent="FamilyHouseArea/HomeBuilding" unique_id=1611749412]
+[node name="Block0" type="Sprite2D" parent="FamilyHomeArea/HomeBuilding"]
 position = Vector2(-35, -20)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("5")
 
-[node name="Block1" type="Sprite2D" parent="FamilyHouseArea/HomeBuilding" unique_id=1250736654]
+[node name="Block1" type="Sprite2D" parent="FamilyHomeArea/HomeBuilding"]
 position = Vector2(35, -20)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("5")
 
-[node name="HomeDoor" type="Sprite2D" parent="FamilyHouseArea" unique_id=1165836246]
-position = Vector2(150, 705)
+[node name="HomeDoor" type="Sprite2D" parent="FamilyHomeArea"]
+position = Vector2(330, 1545)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("6")
 
-[node name="Zone_FamilyHouse" type="Area2D" parent="FamilyHouseArea" unique_id=458290855]
-position = Vector2(150, 700)
+[node name="Zone_FamilyHome" type="Area2D" parent="FamilyHomeArea"]
+position = Vector2(330, 1570)
 collision_layer = 16
 collision_mask = 2
 monitorable = false
 script = ExtResource("12")
-zone_id = "family_house"
+zone_id = "family_home"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FamilyHouseArea/Zone_FamilyHouse" unique_id=829001891]
-shape = SubResource("RectShape_ZoneFamilyHouse")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FamilyHomeArea/Zone_FamilyHome"]
+shape = SubResource("RectShape_ZoneFamilyHome")
 
-[node name="NPCSpot" type="Marker2D" parent="FamilyHouseArea/Zone_FamilyHouse" unique_id=460103410]
-position = Vector2(70, 30)
+[node name="NPCSpot" type="Marker2D" parent="FamilyHomeArea/Zone_FamilyHome"]
+position = Vector2(0, 40)
 
-[node name="MerchantHouseArea" type="Node2D" parent="." unique_id=1586936734]
+[node name="LowerCityArea" type="Node2D" parent="."]
 
-[node name="Stall1" type="StaticBody2D" parent="MerchantHouseArea" unique_id=1460751967]
-position = Vector2(460, 390)
+[node name="PotterHut" type="StaticBody2D" parent="LowerCityArea"]
+position = Vector2(280, 950)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MerchantHouseArea/Stall1" unique_id=1702724568]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerCityArea/PotterHut"]
+shape = SubResource("RectShape_PotterHut")
+
+[node name="Block0" type="Sprite2D" parent="LowerCityArea/PotterHut"]
+modulate = Color(0.88, 0.8, 0.65, 1)
+position = Vector2(-35, -20)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("4")
+
+[node name="Block1" type="Sprite2D" parent="LowerCityArea/PotterHut"]
+modulate = Color(0.88, 0.8, 0.65, 1)
+position = Vector2(35, -20)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("4")
+
+[node name="PotterDoor" type="Sprite2D" parent="LowerCityArea"]
+position = Vector2(280, 995)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("6")
+
+[node name="Jar1" type="Sprite2D" parent="LowerCityArea"]
+position = Vector2(220, 1010)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("10")
+
+[node name="Jar2" type="Sprite2D" parent="LowerCityArea"]
+position = Vector2(340, 1010)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("10")
+
+[node name="StableYardBuilding" type="StaticBody2D" parent="LowerCityArea"]
+position = Vector2(760, 1000)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerCityArea/StableYardBuilding"]
+shape = SubResource("RectShape_StableYard")
+
+[node name="Block0" type="Sprite2D" parent="LowerCityArea/StableYardBuilding"]
+modulate = Color(0.72, 0.55, 0.4, 1)
+position = Vector2(-40, -20)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("5")
+
+[node name="Block1" type="Sprite2D" parent="LowerCityArea/StableYardBuilding"]
+modulate = Color(0.72, 0.55, 0.4, 1)
+position = Vector2(40, -20)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("5")
+
+[node name="FeedCrate" type="Sprite2D" parent="LowerCityArea"]
+position = Vector2(690, 1060)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("9")
+
+[node name="FootprintsClue" parent="LowerCityArea" instance=ExtResource("11")]
+position = Vector2(820, 1080)
+display_name = "Fresh hoofprints"
+fact_id = "f_footprints_stable"
+claim = "Fresh hoofprints and cart tracks lead out of the yard, heading toward the alleys."
+examine_lines = Array[String](["You crouch by the yard.", "Fresh hoofprints -- and cart tracks -- lead out, heading toward the back alleys."])
+repeat_lines = Array[String](["The same tracks. Still heading toward the alleys."])
+
+[node name="LowerHouseA" type="StaticBody2D" parent="LowerCityArea"]
+position = Vector2(350, 1250)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerCityArea/LowerHouseA"]
+shape = SubResource("RectShape_LowerHouse")
+
+[node name="Block0" type="Sprite2D" parent="LowerCityArea/LowerHouseA"]
+position = Vector2(0, -20)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4")
+
+[node name="LowerHouseB" type="StaticBody2D" parent="LowerCityArea"]
+position = Vector2(830, 1220)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerCityArea/LowerHouseB"]
+shape = SubResource("RectShape_LowerHouse")
+
+[node name="Block0" type="Sprite2D" parent="LowerCityArea/LowerHouseB"]
+position = Vector2(0, -20)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4")
+
+[node name="CourtyardCrate" type="Sprite2D" parent="LowerCityArea"]
+position = Vector2(600, 1230)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("9")
+
+[node name="CourtyardJar" type="Sprite2D" parent="LowerCityArea"]
+position = Vector2(650, 1250)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("10")
+
+[node name="Zone_LowerCity" type="Area2D" parent="LowerCityArea"]
+position = Vector2(525, 1090)
+collision_layer = 16
+collision_mask = 2
+monitorable = false
+script = ExtResource("12")
+zone_id = "lower_city"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerCityArea/Zone_LowerCity"]
+shape = SubResource("RectShape_ZoneLowerCity")
+
+[node name="NPCSpot" type="Marker2D" parent="LowerCityArea/Zone_LowerCity"]
+position = Vector2(0, -40)
+
+[node name="MarketplaceArea" type="Node2D" parent="."]
+
+[node name="Stall1" type="StaticBody2D" parent="MarketplaceArea"]
+position = Vector2(1120, 880)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarketplaceArea/Stall1"]
 shape = SubResource("RectShape_Stall")
 
-[node name="Sprite2D" type="Sprite2D" parent="MerchantHouseArea/Stall1" unique_id=48302325]
+[node name="Sprite2D" type="Sprite2D" parent="MarketplaceArea/Stall1"]
 position = Vector2(0, -20)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("7")
 
-[node name="Stall2" type="StaticBody2D" parent="MerchantHouseArea" unique_id=1630532862]
-position = Vector2(570, 390)
+[node name="Stall2" type="StaticBody2D" parent="MarketplaceArea"]
+position = Vector2(1380, 880)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MerchantHouseArea/Stall2" unique_id=2117802744]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarketplaceArea/Stall2"]
 shape = SubResource("RectShape_Stall")
 
-[node name="Sprite2D" type="Sprite2D" parent="MerchantHouseArea/Stall2" unique_id=786852419]
+[node name="Sprite2D" type="Sprite2D" parent="MarketplaceArea/Stall2"]
 position = Vector2(0, -20)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("8")
 
-[node name="ClaySealClue" parent="MerchantHouseArea" unique_id=56559078 instance=ExtResource("11")]
-position = Vector2(510, 470)
+[node name="Stall3" type="StaticBody2D" parent="MarketplaceArea"]
+position = Vector2(1120, 1060)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarketplaceArea/Stall3"]
+shape = SubResource("RectShape_Stall")
+
+[node name="Sprite2D" type="Sprite2D" parent="MarketplaceArea/Stall3"]
+position = Vector2(0, -20)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("8")
+
+[node name="Stall4" type="StaticBody2D" parent="MarketplaceArea"]
+position = Vector2(1380, 1060)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarketplaceArea/Stall4"]
+shape = SubResource("RectShape_Stall")
+
+[node name="Sprite2D" type="Sprite2D" parent="MarketplaceArea/Stall4"]
+position = Vector2(0, -20)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("7")
+
+[node name="PlazaAccent1" type="Sprite2D" parent="MarketplaceArea"]
+z_index = -5
+position = Vector2(1250, 920)
+texture = ExtResource("2")
+
+[node name="PlazaAccent2" type="Sprite2D" parent="MarketplaceArea"]
+z_index = -5
+position = Vector2(1250, 1050)
+texture = ExtResource("2")
+
+[node name="CrateCluster" type="Sprite2D" parent="MarketplaceArea"]
+position = Vector2(1250, 850)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("9")
+
+[node name="ClaySealClue" parent="MarketplaceArea" instance=ExtResource("11")]
+position = Vector2(1250, 990)
 display_name = "A dropped clay seal"
 fact_id = "f_clay_seal_merchant"
 claim = "A dropped clay seal bears Laban's household mark -- he was here, and recently."
 examine_lines = Array[String](["A small clay seal, half-trodden into the dirt near the stalls.", "The mark pressed into it is Laban's household sign."])
 repeat_lines = Array[String](["Just the clay seal you already found."])
 
-[node name="Zone_MerchantHouse" type="Area2D" parent="MerchantHouseArea" unique_id=1510674922]
-position = Vector2(520, 420)
+[node name="Zone_Marketplace" type="Area2D" parent="MarketplaceArea"]
+position = Vector2(1250, 965)
 collision_layer = 16
 collision_mask = 2
 monitorable = false
 script = ExtResource("12")
-zone_id = "merchant_house"
+zone_id = "marketplace"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MerchantHouseArea/Zone_MerchantHouse" unique_id=1449711075]
-shape = SubResource("RectShape_ZoneMerchantHouse")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarketplaceArea/Zone_Marketplace"]
+shape = SubResource("RectShape_ZoneMarketplace")
 
-[node name="NPCSpot" type="Marker2D" parent="MerchantHouseArea/Zone_MerchantHouse" unique_id=1325020611]
-position = Vector2(-40, 70)
+[node name="NPCSpot" type="Marker2D" parent="MarketplaceArea/Zone_Marketplace"]
+position = Vector2(0, 60)
 
-[node name="PotterShopArea" type="Node2D" parent="." unique_id=2133630843]
+[node name="AlleysArea" type="Node2D" parent="."]
 
-[node name="PotterHut" type="StaticBody2D" parent="PotterShopArea" unique_id=1469848843]
-position = Vector2(520, 820)
+[node name="AlleyBlockA" type="StaticBody2D" parent="AlleysArea"]
+position = Vector2(1600, 660)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PotterShopArea/PotterHut" unique_id=38964224]
-shape = SubResource("RectShape_PotterHut")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlleysArea/AlleyBlockA"]
+shape = SubResource("RectShape_AlleyBlock")
 
-[node name="Block0" type="Sprite2D" parent="PotterShopArea/PotterHut" unique_id=1613963452]
-modulate = Color(0.88, 0.8, 0.65, 1)
+[node name="Block0" type="Sprite2D" parent="AlleysArea/AlleyBlockA"]
+modulate = Color(0.6, 0.58, 0.55, 1)
+position = Vector2(0, -15)
+scale = Vector2(1.5, 1.2)
+texture = ExtResource("4")
+
+[node name="AlleyBlockB" type="StaticBody2D" parent="AlleysArea"]
+position = Vector2(1690, 600)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlleysArea/AlleyBlockB"]
+shape = SubResource("RectShape_AlleyBlock")
+
+[node name="Block0" type="Sprite2D" parent="AlleysArea/AlleyBlockB"]
+modulate = Color(0.6, 0.58, 0.55, 1)
+position = Vector2(0, -15)
+scale = Vector2(1.5, 1.2)
+texture = ExtResource("4")
+
+[node name="AlleyBlockC_ShortcutScreen" type="StaticBody2D" parent="AlleysArea"]
+position = Vector2(1600, 560)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlleysArea/AlleyBlockC_ShortcutScreen"]
+shape = SubResource("RectShape_AlleyBlockSmall")
+
+[node name="Block0" type="Sprite2D" parent="AlleysArea/AlleyBlockC_ShortcutScreen"]
+modulate = Color(0.6, 0.58, 0.55, 1)
+position = Vector2(0, -10)
+scale = Vector2(1.1, 1.0)
+texture = ExtResource("4")
+
+[node name="DeadEndWallWest" type="StaticBody2D" parent="AlleysArea"]
+position = Vector2(1580, 860)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlleysArea/DeadEndWallWest"]
+shape = SubResource("RectShape_DeadEndSideWall")
+
+[node name="DeadEndWallEast" type="StaticBody2D" parent="AlleysArea"]
+position = Vector2(1730, 860)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlleysArea/DeadEndWallEast"]
+shape = SubResource("RectShape_DeadEndSideWall")
+
+[node name="DeadEndWallSouth" type="StaticBody2D" parent="AlleysArea"]
+position = Vector2(1655, 920)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlleysArea/DeadEndWallSouth"]
+shape = SubResource("RectShape_DeadEndBackWall")
+
+[node name="Zone_Alleys" type="Area2D" parent="AlleysArea"]
+position = Vector2(1625, 690)
+collision_layer = 16
+collision_mask = 2
+monitorable = false
+script = ExtResource("12")
+zone_id = "alleys"
+
+[node name="MainCorridorShape" type="CollisionShape2D" parent="AlleysArea/Zone_Alleys"]
+shape = SubResource("RectShape_ZoneAlleysMain")
+
+[node name="ShortcutBranchShape" type="CollisionShape2D" parent="AlleysArea/Zone_Alleys"]
+position = Vector2(55, -150)
+shape = SubResource("RectShape_ZoneAlleysBranch")
+
+[node name="NPCSpot" type="Marker2D" parent="AlleysArea/Zone_Alleys"]
+position = Vector2(-75, 60)
+
+[node name="TempleDistrictArea" type="Node2D" parent="."]
+
+[node name="TempleMain" type="StaticBody2D" parent="TempleDistrictArea"]
+position = Vector2(2005, 220)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TempleDistrictArea/TempleMain"]
+shape = SubResource("RectShape_TempleBuildingMain")
+
+[node name="Block0" type="Sprite2D" parent="TempleDistrictArea/TempleMain"]
+modulate = Color(0.85, 0.83, 0.78, 1)
+position = Vector2(0, -40)
+scale = Vector2(1.8, 4.0)
+texture = ExtResource("4")
+
+[node name="TempleSideL" type="StaticBody2D" parent="TempleDistrictArea"]
+position = Vector2(1920, 260)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TempleDistrictArea/TempleSideL"]
+shape = SubResource("RectShape_TempleBuildingSide")
+
+[node name="Block0" type="Sprite2D" parent="TempleDistrictArea/TempleSideL"]
+modulate = Color(0.8, 0.78, 0.72, 1)
+position = Vector2(0, -25)
+scale = Vector2(1.3, 2.2)
+texture = ExtResource("4")
+
+[node name="TempleSideR" type="StaticBody2D" parent="TempleDistrictArea"]
+position = Vector2(2090, 260)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TempleDistrictArea/TempleSideR"]
+shape = SubResource("RectShape_TempleBuildingSide")
+
+[node name="Block0" type="Sprite2D" parent="TempleDistrictArea/TempleSideR"]
+modulate = Color(0.8, 0.78, 0.72, 1)
+position = Vector2(0, -25)
+scale = Vector2(1.3, 2.2)
+texture = ExtResource("4")
+
+[node name="Zone_TempleDistrict" type="Area2D" parent="TempleDistrictArea"]
+position = Vector2(2005, 270)
+collision_layer = 16
+collision_mask = 2
+monitorable = false
+script = ExtResource("12")
+zone_id = "temple_district"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TempleDistrictArea/Zone_TempleDistrict"]
+shape = SubResource("RectShape_ZoneTempleDistrict")
+
+[node name="NPCSpot" type="Marker2D" parent="TempleDistrictArea/Zone_TempleDistrict"]
+position = Vector2(-150, 120)
+
+[node name="UpperCityArea" type="Node2D" parent="."]
+
+[node name="StoneHouseBuilding" type="StaticBody2D" parent="UpperCityArea"]
+position = Vector2(2000, 650)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperCityArea/StoneHouseBuilding"]
+shape = SubResource("RectShape_StoneHouseBuilding")
+
+[node name="Block0" type="Sprite2D" parent="UpperCityArea/StoneHouseBuilding"]
+modulate = Color(0.72, 0.74, 0.8, 1)
 position = Vector2(-35, -20)
 scale = Vector2(1.6, 1.6)
-texture = ExtResource("4")
+texture = ExtResource("5")
 
-[node name="Block1" type="Sprite2D" parent="PotterShopArea/PotterHut" unique_id=255825844]
-modulate = Color(0.88, 0.8, 0.65, 1)
+[node name="Block1" type="Sprite2D" parent="UpperCityArea/StoneHouseBuilding"]
+modulate = Color(0.72, 0.74, 0.8, 1)
 position = Vector2(35, -20)
 scale = Vector2(1.6, 1.6)
-texture = ExtResource("4")
+texture = ExtResource("5")
 
-[node name="PotterDoor" type="Sprite2D" parent="PotterShopArea" unique_id=638874025]
-position = Vector2(520, 865)
+[node name="StoneHouseDoor" type="Sprite2D" parent="UpperCityArea"]
+position = Vector2(2000, 695)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("6")
 
-[node name="Jar1" type="Sprite2D" parent="PotterShopArea" unique_id=302380437]
-position = Vector2(460, 880)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("10")
-
-[node name="Jar2" type="Sprite2D" parent="PotterShopArea" unique_id=1505452872]
-position = Vector2(580, 880)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("10")
-
-[node name="Zone_PotterShop" type="Area2D" parent="PotterShopArea" unique_id=274316185]
-position = Vector2(520, 850)
-collision_layer = 16
-collision_mask = 2
-monitorable = false
-script = ExtResource("12")
-zone_id = "potter_shop"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PotterShopArea/Zone_PotterShop" unique_id=2065203391]
-shape = SubResource("RectShape_ZonePotterShop")
-
-[node name="NPCSpot" type="Marker2D" parent="PotterShopArea/Zone_PotterShop" unique_id=1634046014]
-position = Vector2(70, 20)
-
-[node name="StableArea" type="Node2D" parent="." unique_id=110971937]
-
-[node name="StableBuilding" type="StaticBody2D" parent="StableArea" unique_id=1338596799]
-position = Vector2(900, 390)
+[node name="GatePostL" type="StaticBody2D" parent="UpperCityArea"]
+position = Vector2(1800, 800)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StableArea/StableBuilding" unique_id=1986805460]
-shape = SubResource("RectShape_StableBuilding")
-
-[node name="Block0" type="Sprite2D" parent="StableArea/StableBuilding" unique_id=41841279]
-modulate = Color(0.72, 0.55, 0.4, 1)
-position = Vector2(-40, -20)
-scale = Vector2(1.6, 1.6)
-texture = ExtResource("5")
-
-[node name="Block1" type="Sprite2D" parent="StableArea/StableBuilding" unique_id=746786870]
-modulate = Color(0.72, 0.55, 0.4, 1)
-position = Vector2(40, -20)
-scale = Vector2(1.6, 1.6)
-texture = ExtResource("5")
-
-[node name="FeedCrate" type="Sprite2D" parent="StableArea" unique_id=467667402]
-position = Vector2(830, 450)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("9")
-
-[node name="FootprintsClue" parent="StableArea" unique_id=2120385683 instance=ExtResource("11")]
-position = Vector2(950, 470)
-display_name = "Fresh hoofprints"
-fact_id = "f_footprints_stable"
-claim = "Fresh hoofprints lead out of the stable yard, heading north."
-examine_lines = Array[String](["You crouch by the stable yard.", "Fresh hoofprints -- and cart tracks -- lead out, heading north toward the hills."])
-repeat_lines = Array[String](["The same tracks. Still heading north."])
-
-[node name="Zone_Stable" type="Area2D" parent="StableArea" unique_id=1771888845]
-position = Vector2(900, 420)
-collision_layer = 16
-collision_mask = 2
-monitorable = false
-script = ExtResource("12")
-zone_id = "stable"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StableArea/Zone_Stable" unique_id=1777894147]
-shape = SubResource("RectShape_ZoneStable")
-
-[node name="NPCSpot" type="Marker2D" parent="StableArea/Zone_Stable" unique_id=439220226]
-position = Vector2(-50, 60)
-
-[node name="EasternGateArea" type="Node2D" parent="." unique_id=341691463]
-
-[node name="GatePostL" type="StaticBody2D" parent="EasternGateArea" unique_id=1456474204]
-position = Vector2(1000, 820)
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EasternGateArea/GatePostL" unique_id=404804713]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperCityArea/GatePostL"]
 shape = SubResource("RectShape_GatePost")
 
-[node name="Block0" type="Sprite2D" parent="EasternGateArea/GatePostL" unique_id=174643769]
+[node name="Block0" type="Sprite2D" parent="UpperCityArea/GatePostL"]
 position = Vector2(0, -20)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("4")
 
-[node name="GatePostR" type="StaticBody2D" parent="EasternGateArea" unique_id=1956352678]
-position = Vector2(1100, 820)
+[node name="GatePostR" type="StaticBody2D" parent="UpperCityArea"]
+position = Vector2(1880, 800)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EasternGateArea/GatePostR" unique_id=908663584]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperCityArea/GatePostR"]
 shape = SubResource("RectShape_GatePost")
 
-[node name="Block0" type="Sprite2D" parent="EasternGateArea/GatePostR" unique_id=648103820]
+[node name="Block0" type="Sprite2D" parent="UpperCityArea/GatePostR"]
 position = Vector2(0, -20)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("4")
 
-[node name="SandalPrintsClue" parent="EasternGateArea" unique_id=1298678124 instance=ExtResource("11")]
-position = Vector2(1050, 900)
+[node name="SandalPrintsClue" parent="UpperCityArea" instance=ExtResource("11")]
+position = Vector2(1840, 850)
 display_name = "Sandal prints in the dust"
 fact_id = "f_sandal_prints_gate"
 claim = "Sandal prints in the dust by the gate match a hurried stride, heading out."
-examine_lines = Array[String](["The dust by the gate is churned up.", "One set of prints, moving fast, heading out of the city."])
-repeat_lines = Array[String](["The same hurried prints, still heading out."])
+examine_lines = Array[String](["The dust by the gate is churned up.", "One set of prints, moving fast, heading further into the Upper City."])
+repeat_lines = Array[String](["The same hurried prints, still heading in."])
 
-[node name="Zone_EasternGate" type="Area2D" parent="EasternGateArea" unique_id=157838857]
-position = Vector2(1050, 850)
+[node name="Zone_UpperCity" type="Area2D" parent="UpperCityArea"]
+position = Vector2(2005, 725)
 collision_layer = 16
 collision_mask = 2
 monitorable = false
 script = ExtResource("12")
-zone_id = "eastern_gate"
+zone_id = "upper_city"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EasternGateArea/Zone_EasternGate" unique_id=419573901]
-shape = SubResource("RectShape_ZoneEasternGate")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperCityArea/Zone_UpperCity"]
+shape = SubResource("RectShape_ZoneUpperCity")
 
-[node name="NPCSpot" type="Marker2D" parent="EasternGateArea/Zone_EasternGate" unique_id=2006454855]
-position = Vector2(0, 40)
+[node name="NPCSpot" type="Marker2D" parent="UpperCityArea/Zone_UpperCity"]
+position = Vector2(-60, -50)
 
-[node name="WatchtowerArea" type="Node2D" parent="." unique_id=1337140580]
+[node name="StoreroomArea" type="Node2D" parent="."]
 
-[node name="TowerBuilding" type="StaticBody2D" parent="WatchtowerArea" unique_id=1110285051]
-position = Vector2(1550, 220)
+[node name="StoreroomBuilding" type="StaticBody2D" parent="StoreroomArea"]
+position = Vector2(2355, 400)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WatchtowerArea/TowerBuilding" unique_id=1778349075]
-shape = SubResource("RectShape_Watchtower")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StoreroomArea/StoreroomBuilding"]
+shape = SubResource("RectShape_StoreroomBuilding")
 
-[node name="Block0" type="Sprite2D" parent="WatchtowerArea/TowerBuilding" unique_id=1599844181]
-modulate = Color(0.55, 0.55, 0.6, 1)
-scale = Vector2(1.4, 3)
-texture = ExtResource("4")
-
-[node name="Zone_Watchtower" type="Area2D" parent="WatchtowerArea" unique_id=1600687399]
-position = Vector2(1550, 250)
-collision_layer = 16
-collision_mask = 2
-monitorable = false
-script = ExtResource("12")
-zone_id = "watchtower"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WatchtowerArea/Zone_Watchtower" unique_id=1613445288]
-shape = SubResource("RectShape_ZoneWatchtower")
-
-[node name="NPCSpot" type="Marker2D" parent="WatchtowerArea/Zone_Watchtower" unique_id=1941983433]
-position = Vector2(60, 60)
-
-[node name="StoneHouseArea" type="Node2D" parent="." unique_id=851837008]
-
-[node name="StoneHouseBuilding" type="StaticBody2D" parent="StoneHouseArea" unique_id=706975933]
-position = Vector2(1950, 570)
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StoneHouseArea/StoneHouseBuilding" unique_id=1779753544]
-shape = SubResource("RectShape_StoneHouse")
-
-[node name="Block0" type="Sprite2D" parent="StoneHouseArea/StoneHouseBuilding" unique_id=134895456]
-modulate = Color(0.72, 0.74, 0.8, 1)
-position = Vector2(-35, -20)
-scale = Vector2(1.6, 1.6)
+[node name="Block0" type="Sprite2D" parent="StoreroomArea/StoreroomBuilding"]
+modulate = Color(0.55, 0.45, 0.3, 1)
+position = Vector2(-30, -20)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("5")
 
-[node name="Block1" type="Sprite2D" parent="StoneHouseArea/StoneHouseBuilding" unique_id=1883148229]
-modulate = Color(0.72, 0.74, 0.8, 1)
-position = Vector2(35, -20)
-scale = Vector2(1.6, 1.6)
+[node name="Block1" type="Sprite2D" parent="StoreroomArea/StoreroomBuilding"]
+modulate = Color(0.55, 0.45, 0.3, 1)
+position = Vector2(30, -20)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("5")
 
-[node name="StoneHouseDoor" type="Sprite2D" parent="StoneHouseArea" unique_id=1106596197]
-position = Vector2(1950, 615)
-scale = Vector2(1.3, 1.3)
+[node name="StoreroomDoor" type="Sprite2D" parent="StoreroomArea"]
+position = Vector2(2355, 440)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("6")
 
-[node name="Zone_StoneHouse" type="Area2D" parent="StoneHouseArea" unique_id=1540484486]
-position = Vector2(1950, 600)
+[node name="Zone_LabanStoreroom" type="Area2D" parent="StoreroomArea"]
+position = Vector2(2355, 435)
 collision_layer = 16
 collision_mask = 2
 monitorable = false
 script = ExtResource("12")
-zone_id = "stone_house"
+zone_id = "laban_storeroom"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StoneHouseArea/Zone_StoneHouse" unique_id=1547415682]
-shape = SubResource("RectShape_ZoneStoneHouse")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StoreroomArea/Zone_LabanStoreroom"]
+shape = SubResource("RectShape_ZoneStoreroom")
 
-[node name="NPCSpot" type="Marker2D" parent="StoneHouseArea/Zone_StoneHouse" unique_id=545767983]
-position = Vector2(-60, 50)
+[node name="NPCSpot" type="Marker2D" parent="StoreroomArea/Zone_LabanStoreroom"]
+position = Vector2(0, 15)
 
-[node name="CaravanRoadArea" type="Node2D" parent="." unique_id=1558650909]
+[node name="NPCs" type="Node2D" parent="."]
 
-[node name="CrateStack1" type="Sprite2D" parent="CaravanRoadArea" unique_id=1000131946]
-position = Vector2(2300, 880)
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("9")
-
-[node name="CrateStack2" type="Sprite2D" parent="CaravanRoadArea" unique_id=1323266536]
-position = Vector2(2380, 900)
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("9")
-
-[node name="Zone_CaravanRoad" type="Area2D" parent="CaravanRoadArea" unique_id=587974392]
-position = Vector2(2350, 900)
-collision_layer = 16
-collision_mask = 2
-monitorable = false
-script = ExtResource("12")
-zone_id = "caravan_road"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CaravanRoadArea/Zone_CaravanRoad" unique_id=1254826452]
-shape = SubResource("RectShape_ZoneCaravanRoad")
-
-[node name="NPCSpot" type="Marker2D" parent="CaravanRoadArea/Zone_CaravanRoad" unique_id=1339305689]
-position = Vector2(0, -50)
-
-[node name="NPCs" type="Node2D" parent="." unique_id=1541995524]
-
-[node name="Merchant" parent="NPCs" unique_id=119867401 instance=ExtResource("13")]
+[node name="Merchant" parent="NPCs" instance=ExtResource("13")]
 npc_id = "merchant"
 
-[node name="Potter" parent="NPCs" unique_id=384293981 instance=ExtResource("13")]
+[node name="Potter" parent="NPCs" instance=ExtResource("13")]
 npc_id = "potter"
 
-[node name="StableWorker" parent="NPCs" unique_id=677731698 instance=ExtResource("13")]
+[node name="StableWorker" parent="NPCs" instance=ExtResource("13")]
 npc_id = "stable_worker"
 
-[node name="GuardOlder" parent="NPCs" unique_id=1343224860 instance=ExtResource("13")]
+[node name="GuardOlder" parent="NPCs" instance=ExtResource("13")]
 npc_id = "guard_older"
 
-[node name="GuardYounger" parent="NPCs" unique_id=1512938741 instance=ExtResource("13")]
+[node name="GuardYounger" parent="NPCs" instance=ExtResource("13")]
 npc_id = "guard_younger"
 
-[node name="Shepherd" parent="NPCs" unique_id=927373195 instance=ExtResource("13")]
+[node name="Shepherd" parent="NPCs" instance=ExtResource("13")]
 npc_id = "shepherd"
 
-[node name="Courier" parent="NPCs" unique_id=804030983 instance=ExtResource("13")]
+[node name="Courier" parent="NPCs" instance=ExtResource("13")]
 npc_id = "courier"
 
-[node name="StoneHouseWoman" parent="NPCs" unique_id=1147683028 instance=ExtResource("13")]
+[node name="StoneHouseWoman" parent="NPCs" instance=ExtResource("13")]
 npc_id = "stone_house_woman"
 
-[node name="LabanCompanion" parent="NPCs" unique_id=1018933655 instance=ExtResource("13")]
+[node name="LabanCompanion" parent="NPCs" instance=ExtResource("13")]
 npc_id = "laban_companion"
 
-[node name="Laban" parent="NPCs" unique_id=1456008949 instance=ExtResource("14")]
+[node name="Laban" parent="NPCs" instance=ExtResource("14")]

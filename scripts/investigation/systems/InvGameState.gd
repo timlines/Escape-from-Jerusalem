@@ -21,7 +21,7 @@ const DAY_START_MINUTE := 480 # 8:00 AM on Day 1
 const REAL_SECONDS_PER_GAME_MINUTE := 0.2 #0.2 5 game minutes per second, 0.5 (2 game minutes/sec), 1.0 (1 game minute/sec),
 
 var total_minutes: int = DAY_START_MINUTE
-var current_location: String = "family_house"
+var current_location: String = "family_home"
 var reputation: int = 0 # 0-100, rises when the player lies/threatens and is noticed
 
 var _flags: Dictionary = {} # String -> bool
@@ -30,7 +30,7 @@ var _real_time_accumulator: float = 0.0
 
 func reset() -> void:
 	total_minutes = DAY_START_MINUTE
-	current_location = "family_house"
+	current_location = "family_home"
 	reputation = 0
 	_flags.clear()
 	InvInformationSystem.reset()
