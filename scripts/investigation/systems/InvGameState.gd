@@ -12,7 +12,10 @@ signal location_changed(zone_id: String)
 signal flag_changed(flag_name: String, value: bool)
 signal reputation_changed(value: int)
 
-const BLOCK_LENGTH_MINUTES := 240 # 4 hours per block
+const MORNING_START := 360    # 6:00 AM
+const AFTERNOON_START := 720  # 12:00 PM
+const EVENING_START := 1020   # 5:00 PM
+const NIGHT_START := 1260     # 9:00 PM
 const BLOCK_NAMES: Array[String] = ["Morning", "Afternoon", "Evening", "Night"]
 const DAY_START_MINUTE := 480 # 8:00 AM on Day 1
 
@@ -72,8 +75,18 @@ func advance_time(minutes: int) -> void:
 
 
 func get_block_index() -> int:
-	var minutes_since_day_start := total_minutes - DAY_START_MINUTE
-	return int(minutes_since_day_start / BLOCK_LENGTH_MINUTES) % BLOCK_NAMES.size()
+	var minute_of_day := total_minutes % 1440
+
+	if minute_of_day >= MORNING_START and minute_of_day < AFTERNOON_START:
+		return 0 # Morning
+
+	if minute_of_day >= AFTERNOON_START and minute_of_day < EVENING_START:
+		return 1 # Afternoon
+
+	if minute_of_day >= EVENING_START and minute_of_day < NIGHT_START:
+		return 2 # Evening
+
+	return 3 # Night
 
 
 func get_block_name() -> String:
