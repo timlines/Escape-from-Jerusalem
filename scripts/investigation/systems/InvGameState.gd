@@ -18,12 +18,14 @@ const EVENING_START := 1020   # 5:00 PM
 const NIGHT_START := 1260     # 9:00 PM
 const BLOCK_NAMES: Array[String] = ["Morning", "Afternoon", "Evening", "Night"]
 const DAY_START_MINUTE := 480 # 8:00 AM on Day 1
+const REAL_SECONDS_PER_GAME_MINUTE := 0.2 #0.2 5 game minutes per second, 0.5 (2 game minutes/sec), 1.0 (1 game minute/sec),
 
 var total_minutes: int = DAY_START_MINUTE
 var current_location: String = "family_house"
 var reputation: int = 0 # 0-100, rises when the player lies/threatens and is noticed
 
 var _flags: Dictionary = {} # String -> bool
+var _real_time_accumulator: float = 0.0
 
 
 func reset() -> void:
@@ -35,6 +37,7 @@ func reset() -> void:
 	InvRelationshipSystem.reset()
 	InvNPCDirector.reset()
 	InvDialogueManager.reset()
+	_real_time_accumulator = 0.0
 
 
 func has_flag(flag_name: String) -> bool:
@@ -106,3 +109,10 @@ func get_clock_string() -> String:
 	if hour12 == 0:
 		hour12 = 12
 	return "Day %d · %d:%02d %s" % [get_day(), hour12, minute, suffix]
+	
+func _process(delta: float) -> void:
+	_real_time_accumulator += delta
+
+	while _real_time_accumulator >= REAL_SECONDS_PER_GAME_MINUTE:
+		_real_time_accumulator -= REAL_SECONDS_PER_GAME_MINUTE
+		advance_time(1)
