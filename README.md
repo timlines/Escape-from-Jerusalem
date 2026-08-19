@@ -4,6 +4,7 @@
 
 [![Engine: Godot](https://img.shields.io/badge/Engine-Godot-478CBF?logo=godot-engine&logoColor=white)](https://godotengine.org/)
 
+[itch.io] • [GitHub] • [Project Documentation]
 ---
 
 ## 🎮 About
