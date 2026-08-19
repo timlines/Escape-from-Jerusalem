@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://obmhad05dqo8"]
+
+[ext_resource type="Texture2D" uid="uid://ccl73dat4ry41" path="res://assets/vslice/env/wall_block.png" id="1_8afxn"]
+
+[sub_resource type="RectangleShape2D" id="RectShape_LowerHouse"]
+size = Vector2(96, 47.5)
+
+[node name="LowerHouseA" type="StaticBody2D" unique_id=1671331750]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1906155293]
+position = Vector2(-1, -16.5)
+shape = SubResource("RectShape_LowerHouse")
+
+[node name="Block0" type="Sprite2D" parent="." unique_id=1883820398]
+position = Vector2(0, -20)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_8afxn")

@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dmrccsudh0c5e" path="res://assets/vslice/env/stall.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://dced00v03o3hm" path="res://assets/vslice/env/stall_alt.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://bbq55j0800j5c" path="res://assets/vslice/env/prop_crate.png" id="9"]
+[ext_resource type="PackedScene" uid="uid://obmhad05dqo8" path="res://scenes/investigation/world/lower_house_a.tscn" id="9_w2ycq"]
 [ext_resource type="Texture2D" uid="uid://dcfh1ntbimo66" path="res://assets/vslice/env/prop_jar.png" id="10"]
 [ext_resource type="PackedScene" path="res://scenes/investigation/interactables/InvEnvironmentalClue.tscn" id="11"]
 [ext_resource type="Script" uid="uid://cjhkrkq2vix6x" path="res://scripts/investigation/npc/InvLocationZone.gd" id="12"]
@@ -262,18 +263,17 @@ claim = "Fresh hoofprints and cart tracks lead out of the yard, heading toward t
 examine_lines = Array[String](["You crouch by the yard.", "Fresh hoofprints -- and cart tracks -- lead out, heading toward the back alleys."])
 repeat_lines = Array[String](["The same tracks. Still heading toward the alleys."])
 
-[node name="LowerHouseA" type="StaticBody2D" parent="LowerCityArea" unique_id=1255073602]
+[node name="LowerHouseA" parent="LowerCityArea" unique_id=1671331750 instance=ExtResource("9_w2ycq")]
 position = Vector2(350, 1250)
-collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerCityArea/LowerHouseA" unique_id=1704993130]
-position = Vector2(-1, -16.5)
-shape = SubResource("RectShape_LowerHouse")
+[node name="LowerHouseA2" parent="LowerCityArea" unique_id=1181646780 instance=ExtResource("9_w2ycq")]
+position = Vector2(891, 1383)
 
-[node name="Block0" type="Sprite2D" parent="LowerCityArea/LowerHouseA" unique_id=1256302384]
-position = Vector2(0, -20)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("4")
+[node name="LowerHouseA3" parent="LowerCityArea" unique_id=368073836 instance=ExtResource("9_w2ycq")]
+position = Vector2(941, 1475)
+
+[node name="LowerHouseA4" parent="LowerCityArea" unique_id=638295439 instance=ExtResource("9_w2ycq")]
+position = Vector2(897, 1598)
 
 [node name="LowerHouseB" type="StaticBody2D" parent="LowerCityArea" unique_id=257044107]
 position = Vector2(830, 1220)
@@ -307,6 +307,7 @@ script = ExtResource("12")
 zone_id = "lower_city"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LowerCityArea/Zone_LowerCity" unique_id=1144808345]
+visible = false
 shape = SubResource("RectShape_ZoneLowerCity")
 
 [node name="NPCSpot" type="Marker2D" parent="LowerCityArea/Zone_LowerCity" unique_id=2146015727]
