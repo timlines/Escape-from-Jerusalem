@@ -2,23 +2,25 @@
 
 ### A Narrative Adventure About Faith, Family, and Survival
 
-## 1. The Pitch
+## The Pitch
 
-**Escape from Jerusalem** is a narrative-driven adventure game set in Jerusalem around 600 BC, inspired by the opening chapters of the Book of Mormon.
+**Escape from Jerusalem** is a narrative-driven adventure game set in Jerusalem around 600 BC, inspired by the opening chapters of the *Book of Mormon*.
 
-The player takes the role of **Nephi**, a young man living in a city on the brink of destruction. After his family is commanded to leave Jerusalem, Nephi must navigate a dangerous and unfamiliar world while helping his family survive.
+The player takes the role of **Nephi**, a young man living in a city on the brink of destruction.
 
-The game's central challenge isn't simply defeating enemies.
+After his family is commanded to leave Jerusalem, Nephi must navigate a dangerous and unfamiliar world while helping his family survive.
 
-**It's figuring out what to do.**
+But the game's central challenge isn't simply defeating enemies.
 
-Players explore a living city, talk to its inhabitants, gather information, solve problems, make choices, and use their understanding of the world to overcome obstacles.
+> **It's figuring out what to do.**
+
+Players explore a living city, talk with its inhabitants, gather information, solve problems, and use their understanding of the world to overcome obstacles.
 
 The first playable adventure—the **Brass Plates mission**—serves as a vertical slice demonstrating the game's core experience.
 
 ---
 
-## 2. The Player Fantasy
+## The Player Fantasy
 
 The fantasy of *Escape from Jerusalem* is:
 
@@ -26,23 +28,23 @@ The fantasy of *Escape from Jerusalem* is:
 
 Instead of simply watching Nephi's story unfold, the player experiences the uncertainty of being there.
 
-Where should I go?
+**Where should I go?**
 
-Who can I trust?
+**Who can I trust?**
 
-What information do I need?
+**What information do I need?**
 
-How do I get what my family needs?
+**How do I get what my family needs?**
 
-What happens if I approach the problem differently?
+**What happens if I approach the problem differently?**
 
 The player isn't following a predetermined corridor.
 
-**They're navigating a world.**
+> **They're navigating a world.**
 
 ---
 
-## 3. A Different Kind of Adventure Game
+## A Different Kind of Adventure Game
 
 Many adventure games give players an obvious objective:
 
@@ -53,7 +55,7 @@ Many adventure games give players an obvious objective:
 
 *Escape from Jerusalem* is built around a different philosophy:
 
-### **Information is the player's most important resource.**
+# **Information is the player's most important resource.**
 
 The player solves problems by understanding people and the world around them.
 
@@ -65,13 +67,13 @@ An apparently insignificant conversation might unlock another solution.
 
 Time matters because NPCs aren't simply standing around waiting for the player. They have routines, destinations, and lives of their own.
 
-This creates a world where **knowledge becomes gameplay.**
+This creates a world where:
+
+> **Knowledge becomes gameplay.**
 
 ---
 
-## 4. Core Gameplay Loop
-
-The core loop is:
+## Core Gameplay Loop
 
 **Explore → Observe → Investigate → Gather Information → Choose an Approach → Act → Advance Time → Adapt**
 
@@ -89,11 +91,11 @@ That distinction is at the heart of the game.
 
 ---
 
-## 5. The Living City
+## The Living City
 
 Jerusalem isn't simply a backdrop.
 
-It is a system.
+**It is a system.**
 
 NPCs follow daily routines. They move between locations. Different parts of the city serve different purposes. The player can observe these patterns and use them to their advantage.
 
@@ -103,11 +105,11 @@ The player can approach problems from multiple directions.
 
 There isn't necessarily one correct path through the world.
 
-**The map itself becomes part of the puzzle.**
+> **The map itself becomes part of the puzzle.**
 
 ---
 
-## 6. The Brass Plates — Vertical Slice
+## The Brass Plates — Vertical Slice
 
 The first major playable scenario is the story of Nephi's attempt to obtain the brass plates.
 
@@ -125,7 +127,7 @@ The player must:
 * Deal with consequences.
 * Ultimately attempt to obtain the plates.
 
-The purpose of the vertical slice isn't to recreate the entire Book of Mormon.
+The purpose of the vertical slice isn't to recreate the entire *Book of Mormon*.
 
 It is to answer one question:
 
@@ -135,7 +137,7 @@ If the answer is yes, the same underlying systems can support the rest of the ga
 
 ---
 
-## 7. Why This Game?
+## Why This Game?
 
 There is an enormous amount of cultural material that players know as **stories**, but very little that allows them to actually **play through those stories**.
 
@@ -155,7 +157,7 @@ That creates a fundamentally different relationship with the source material.
 
 ---
 
-## 8. Product Vision
+## Product Vision
 
 The long-term vision is larger than a single game.
 
@@ -167,17 +169,17 @@ The result could eventually become a collection of interconnected narrative game
 
 The initial prototype is intentionally small.
 
-**The vision is not.**
+> **The vision is not.**
 
 ---
 
-## 9. What Already Exists
+## What Already Exists
 
 This isn't merely a design document.
 
 A functional prototype already exists in **Godot**.
 
-The prototype demonstrates several of the game's foundational systems:
+The prototype currently demonstrates several foundational systems:
 
 * Top-down player movement
 * A functioning Jerusalem environment
@@ -186,16 +188,16 @@ The prototype demonstrates several of the game's foundational systems:
 * A centralized world clock
 * Time advancement
 * NPC location changes based on time
-* Dialogue/interactions
+* Dialogue and interactions
 * Exploration
 * A developing investigation system
-* A playable foundation for the brass-plates scenario
+* A playable foundation for the Brass Plates scenario
 
-The prototype is therefore being used to validate the game's central design thesis before committing to full production.
+The prototype is being used to validate the game's central design thesis before committing to full production.
 
 ---
 
-## 10. The Prototype Question
+## The Prototype Question
 
 The prototype is designed to answer three questions:
 
@@ -215,19 +217,19 @@ If the prototype succeeds, the next step is expanding the systems into a larger 
 
 ---
 
-# 11. Why Now?
+## Why Now?
 
 Modern game development tools have dramatically lowered the cost of prototyping systems like these.
 
 A small team—or even an individual developer—can now build sophisticated interactive worlds, procedural systems, dialogue systems, and AI-assisted development workflows that previously required much larger teams.
 
-That creates an opportunity to experiment with **new kinds of narrative games** that wouldn't have been economically practical in the past.
+That creates an opportunity to experiment with **new kinds of narrative games** that would previously have been economically impractical.
 
 *Escape from Jerusalem* is an experiment in exactly that space.
 
 ---
 
-# 12. The Ask
+## The Ask
 
 The immediate goal is not to build the entire game.
 
@@ -235,7 +237,7 @@ It is to **prove the concept**.
 
 The next milestone is a polished vertical slice centered on the Brass Plates mission that demonstrates:
 
-**A living Jerusalem + investigation + NPC interaction + meaningful choices + time-driven gameplay + narrative progression.**
+> **A living Jerusalem + investigation + NPC interaction + meaningful choices + time-driven gameplay + narrative progression.**
 
 If that vertical slice succeeds, it provides the foundation for evaluating the larger game's production potential.
 
@@ -244,4 +246,3 @@ If that vertical slice succeeds, it provides the foundation for evaluating the l
 # The One-Sentence Pitch
 
 > **Escape from Jerusalem is a narrative adventure set in 600 BC Jerusalem where players experience the story of Nephi not by following a predetermined quest, but by exploring a living city, gathering information, understanding its people, and figuring out for themselves how to survive.**
-
