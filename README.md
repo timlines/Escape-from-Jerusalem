@@ -1,116 +1,109 @@
-Escape from Jerusalem
+# Escape from Jerusalem
 
-An interactive Book of Mormon adventure.
+> **An interactive Book of Mormon adventure.**
 
-[itch.io] • [GitHub] • [Project Documentation]
+[![Engine: Godot](https://img.shields.io/badge/Engine-Godot-478CBF?logo=godot-engine&logoColor=white)](https://godotengine.org/)
 
-🎮 About
+---
 
-Escape from Jerusalem is a mobile-first, 2D top-down narrative adventure built in Godot and inspired by the opening chapters of the Book of Mormon.
+## 🎮 About
 
-The game puts the player inside Jerusalem around 600 BC and asks them to explore, investigate, interact with people, solve problems, and figure out what to do.
+**Escape from Jerusalem** is a mobile-first, 2D top-down narrative adventure inspired by the opening chapters of the Book of Mormon.
 
-The initial adventure focuses on 1 Nephi 1–4 and is designed as an approximately one-hour experience.
+The game places the player in **Jerusalem around 600 BC** and asks them to explore, investigate, interact with people, solve problems, and figure out what to do.
 
-You thought you escaped Jerusalem.
-Now go back. Get the plates. Escape again.
+The initial adventure focuses primarily on **1 Nephi 1–4** and is designed as an approximately **one-hour experience**.
 
-🧭 Core Experience
+> **You thought you escaped Jerusalem.**  
+> **Now go back. Get the plates. Escape again.**
 
-Explore → Investigate → Gather Information → Choose → Act
+---
 
-The game emphasizes:
+## 🧭 Core Experience
 
-Exploration
-NPC interaction
-Investigation
-Environmental puzzles
-Information as gameplay
-Time-driven NPC behavior
-Multiple approaches to problems
-Narrative discovery
-🏗️ Current Status
+The game is built around:
 
-Development Stage: Prototype / Pre-production
+**Explore → Investigate → Gather Information → Choose → Act**
 
-The current prototype includes:
+Rather than simply following a predetermined quest, players learn about the world and use that knowledge to solve problems.
 
-Top-down player movement
-Playable Jerusalem environment
-Connected city areas
-NPC schedules and movement
-World clock
-Time advancement
-NPC interactions
-Dialogue
-Early investigation systems
-Current Milestone
+Core gameplay includes:
 
-Act I Grey-Box Prototype
+- Exploration
+- NPC interaction
+- Investigation
+- Environmental puzzles
+- Information-based puzzles
+- Time-driven NPC behavior
+- Multiple approaches to problems
+- Narrative discovery
+- Returning to previously visited locations
 
-Start → Explore Jerusalem → Investigate → Experience Lehi's warning → Prepare to leave → Leave Jerusalem
+The goal is to make **knowledge itself a gameplay resource**.
 
-📚 Documentation
-Document	Purpose
-docs/vision.md	The game's North Star
-docs/pitch.md	Product pitch and opportunity
-docs/design_bible.md	Game design principles and systems
-docs/production.md	Development roadmap and milestones
-docs/source_fidelity.md	Scriptural and historical fidelity
-🛠️ Technology
-Engine: Godot
-Genre: Narrative Adventure / Puzzle
-Perspective: 2D Top-Down
-Primary Platform: Mobile
-Source: The Book of Mormon, primarily 1 Nephi 1–4
-🤖 Development
+---
 
-The project uses AI-assisted development where appropriate.
+## 🌎 The World
 
-AI may assist with:
+The game takes place in a compact, interconnected representation of **Jerusalem around 600 BC**.
 
-Programming
-Debugging
-Refactoring
-Prototyping
-Documentation
-Repetitive implementation
+The player explores areas such as:
 
-Creative direction, game design, narrative decisions, and final implementation remain human-directed.
+- Residential districts
+- Lower City
+- Upper City
+- Markets
+- Narrow streets
+- Important family locations
+- Wealthier districts
+- Restricted areas
+- City gates
+- Wilderness outskirts
 
-🎯 Project Philosophy
+The goal is not to recreate the entire historical city.
 
-The goal isn't to recreate the entire Book of Mormon.
+The goal is to create:
 
-The goal is to build one great adventure.
+> **A small world worth learning.**
 
-The project will be developed incrementally:
+---
 
-Prototype → Act I → Laman Reveal → Brass Plates Vertical Slice → Complete Adventure
+## 📖 The Story
 
-📜 Source
+The initial adventure draws primarily from:
 
-The primary narrative source is the Book of Mormon, particularly:
+- **1 Nephi 1**
+- **1 Nephi 2**
+- **1 Nephi 3**
+- **1 Nephi 4**
 
-1 Nephi 1
-1 Nephi 2
-1 Nephi 3
-1 Nephi 4
+The story follows Lehi's family as they leave Jerusalem, establish themselves in the wilderness, return to Jerusalem to obtain the brass plates, and ultimately escape the city again.
 
-Creative gameplay may expand the spaces between canonical events while avoiding contradictions with the source.
+The game is designed to allow the player to **experience** these events rather than simply watch them happen.
 
-See docs/source_fidelity.md for the adaptation guidelines.
+---
 
-🚧 Project Status
+## 🎯 Current Development Goal
 
-This project is currently in active development.
+The project is currently in **prototype / pre-production**.
 
-The game is not yet complete.
+The immediate milestone is the **Act I Grey-Box Prototype**:
 
-The immediate objective is to turn the existing prototype into a playable Act I and then develop the Brass Plates vertical slice.
+**Start → Explore Jerusalem → Investigate → Interact with NPCs → Experience Lehi's warning → Prepare to leave → Leave Jerusalem**
 
-Escape from Jerusalem
+After Act I is playable, development will move toward the wilderness sequence, the narrative reveal, and the Brass Plates vertical slice.
 
-You thought you escaped Jerusalem.
+### Development Roadmap
 
-Now go back. Get the plates. Escape again.
+```text
+Prototype
+    ↓
+Playable Act I
+    ↓
+Wilderness + Narrative Reveal
+    ↓
+Brass Plates Vertical Slice
+    ↓
+Complete Adventure
+    ↓
+Future Expansion
