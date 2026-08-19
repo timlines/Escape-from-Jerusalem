@@ -11,6 +11,8 @@
 **Primary Source:** *The Book of Mormon*, primarily 1 Nephi 1–4
 **Current Development Goal:** Playable Act I / Brass Plates vertical slice
 
+Miro: https://miro.com/app/board/uXjVHwxdBoI=/
+
 ---
 
 # 1. Game Overview
